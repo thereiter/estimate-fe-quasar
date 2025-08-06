@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 export default defineConfig((ctx) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
-    // preFetch: true,
+    preFetch: true,
 
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -43,6 +43,9 @@ export default defineConfig((ctx) => {
         vueShim: true,
         // extendTsConfig (tsConfig) {}
       },
+      env: {
+        API: ctx.dev ? 'http://localhost:8100' : 'https://localhost:8100',
+      },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       // vueRouterBase,
@@ -53,7 +56,6 @@ export default defineConfig((ctx) => {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -145,6 +147,7 @@ export default defineConfig((ctx) => {
       // (gets superseded if process.env.PORT is specified at runtime)
 
       middlewares: [
+        'logging',
         'render', // keep this as last one
       ],
 
