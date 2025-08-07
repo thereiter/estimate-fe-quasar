@@ -5,12 +5,12 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     props: true,
-    name: 'estimate',
+    name: 'index',
     children: [
       {
         path: '',
         name: 'app-entry',
-        component: () => import('pages/Test.vue'),
+        component: () => import('pages/Index.vue'),
       },
       // {
       //   path: "",

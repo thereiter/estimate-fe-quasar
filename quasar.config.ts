@@ -12,10 +12,17 @@ export default defineConfig((ctx) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'axios', 'mock-api'],
+    boot: ['sentry', 'i18n', 'axios', 'mock-api', 'template-globals'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
-    css: ['app.scss'],
+    css: [
+      'app.scss',
+      'template/bootstrap-fixed.min.css',
+      'template/animate.min.css',
+      'template/meanmenu.css',
+      'template/style.scss',
+      'template/custom.css',
+    ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
@@ -39,7 +46,7 @@ export default defineConfig((ctx) => {
       },
 
       typescript: {
-        strict: true,
+        strict: false,
         vueShim: true,
         // extendTsConfig (tsConfig) {}
       },
@@ -49,7 +56,6 @@ export default defineConfig((ctx) => {
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       // vueRouterBase,
-      // vueDevtools,
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
@@ -102,6 +108,7 @@ export default defineConfig((ctx) => {
       // https: true,
       open: false, // opens browser window automatically,
       typescript: false,
+      vueDevtools: true,
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework

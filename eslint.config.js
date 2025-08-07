@@ -14,8 +14,9 @@ export default defineConfigWithVueTs(
      * relevant folders and files).
      *
      * ESLint requires "ignores" key to be the only one in this object
+     *
      */
-    // ignores: []
+    ignores: ['src/*'],
   },
 
   pluginQuasar.configs.recommended(),
