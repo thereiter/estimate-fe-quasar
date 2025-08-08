@@ -33,6 +33,16 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/Faq.vue'),
       },
       {
+        path: 'terms-and-conditions/',
+        name: 'terms-and-conditions',
+        component: () => import('pages/TermsAndConditions.vue'),
+      },
+      {
+        path: 'privacy-policy/',
+        name: 'privacy-policy',
+        component: () => import('pages/PrivacyPolicy.vue'),
+      },
+      {
         path: 'estimate/',
         name: 'estimate',
         component: () => import('pages/Checkout.vue'),

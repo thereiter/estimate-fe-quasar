@@ -7,7 +7,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <div class="logo">
-              <a href="/">
+              <router-link :to="{ name: 'app-entry' }">
                 <picture>
                   <source srcset="~assets/img/logo_black_260.webp" type="image/webp" />
                   <img
@@ -16,7 +16,7 @@
                     alt="logo"
                   />
                 </picture>
-              </a>
+              </router-link>
             </div>
             <p>
               Онлайн-сервіс професійної автоматичної оцінки нерухомості за допомогою штучного
@@ -34,16 +34,18 @@
             <h3>Сервіс</h3>
             <ul class="list">
               <li class="nav-item top-item">
-                <a href="/estimate/checkout/flat-sale/"> Оцінити квартиру </a>
+                <router-link :to="{ name: 'flat-sale' }"> Оцінити квартиру </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/estimate/checkout/house-sale/"> Оцінити приватний будинок </a>
+                <router-link :to="{ name: 'house-sale' }"> Оцінити приватний будинок </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/estimate/checkout/flat-rent/"> Вартість оренди квартири </a>
+                <router-link :to="{ name: 'flat-rent' }"> Вартість оренди квартири </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/estimate/checkout/house-rent/"> Вартість оренди приватного будинку </a>
+                <router-link :to="{ name: 'house-rent' }">
+                  Вартість оренди приватного будинку
+                </router-link>
               </li>
             </ul>
           </div>
@@ -54,25 +56,27 @@
             <h3>Підтримка</h3>
             <ul class="list">
               <li class="nav-item top-item">
-                <a href="/estimate/personal/profile/"> Особистий кабінет </a>
+                <router-link :to="{ name: 'profile' }"> Особистий кабінет </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/terms-and-conditions/"> Публічна оферта </a>
+                <router-link :to="{ name: 'terms-and-conditions' }"> Публічна оферта </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/privacy-policy/"> Політика конфіденційності </a>
+                <router-link :to="{ name: 'privacy-policy' }">
+                  Політика конфіденційності
+                </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/manual/"> Інструкція </a>
+                <router-link :to="{ name: 'manual' }"> Інструкція </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/advantages/"> Переваги </a>
+                <router-link :to="{ name: 'advantages' }"> Переваги </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/faq/"> Часті питання </a>
+                <router-link :to="{ name: 'faq' }"> Часті питання </router-link>
               </li>
               <li class="nav-item top-item">
-                <a href="/price/"> Ціни </a>
+                <router-link :to="{ name: 'price' }"> Ціни </router-link>
               </li>
             </ul>
           </div>
@@ -188,7 +192,7 @@
 
         <div class="col-lg-12 col-md-12">
           <div class="copyright-area">
-            <p>Всі права захищені ©estimate.realestate 2025</p>
+            <p>Всі права захищені estimate.realestate 2025</p>
           </div>
         </div>
       </div>

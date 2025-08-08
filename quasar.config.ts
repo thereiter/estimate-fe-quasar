@@ -125,7 +125,7 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Loading', 'Notify'],
+      plugins: ['Loading', 'Notify', 'Meta'],
       config: {
         loading: {},
         notify: {},

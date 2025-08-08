@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <div>TermsAndConditions</div>
+</template>
 
 <script>
 import { defineComponent } from 'vue';
@@ -7,7 +9,7 @@ import { useQuasar } from 'quasar';
 import { useTemplateGlobals } from 'stores/template-globals';
 
 export default defineComponent({
-  name: 'Index',
+  name: 'TermsAndConditions',
   setup() {
     const templateGlobalsState = useTemplateGlobals();
     // function loadData() {
