@@ -29,6 +29,7 @@
     "leaflet": "^1.9.4",
     "leaflet.fullscreen": "^4.0.0",
     "leaflet.markercluster": "^1.5.3",
+    "lucide-vue-next": "^0.537.0",
     "mitt": "^3.0.1",
     "node": "^22.18.0",
     "p-timeout": "^6.1.4",

@@ -12,14 +12,29 @@ const routes: RouteRecordRaw[] = [
         name: 'app-entry',
         component: () => import('pages/Index.vue'),
       },
-      // {
-      //   path: "",
-      //   name: "app-entry",
-      //   component: () => import("pages/Index.vue"),
-      // },
       {
-        path: 'checkout/',
-        name: 'checkout',
+        path: 'manual/',
+        name: 'manual',
+        component: () => import('pages/Manual.vue'),
+      },
+      {
+        path: 'advantages/',
+        name: 'advantages',
+        component: () => import('pages/Advantages.vue'),
+      },
+      {
+        path: 'price/',
+        name: 'price',
+        component: () => import('pages/Price.vue'),
+      },
+      {
+        path: 'faq/',
+        name: 'faq',
+        component: () => import('pages/Faq.vue'),
+      },
+      {
+        path: 'estimate/',
+        name: 'estimate',
         component: () => import('pages/Checkout.vue'),
         children: [
           {

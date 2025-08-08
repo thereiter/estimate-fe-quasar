@@ -1449,7 +1449,7 @@
   .navbar-color-white .others-option-for-responsive .dot-menu .inner .circle {
     background-color: #ffffff;
   }
-  .navbar-color-white#header.headroom {
+  .navbar-color-white.header-container.headroom {
     border-color: #4a4545;
   }
   .bigdata-analytics-banner {
@@ -2230,7 +2230,7 @@
   .navbar-color-white .others-option-for-responsive .dot-menu .inner .circle {
     background-color: #ffffff;
   }
-  .navbar-color-white#header.headroom {
+  .navbar-color-white.header-container.headroom {
     border-color: #4a4545;
   }
   .bigdata-analytics-banner {

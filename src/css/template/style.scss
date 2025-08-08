@@ -482,7 +482,7 @@ Navbar CSS
 .startp-responsive-nav {
     display: none;
 }
-#header {
+.header-container {
     &.headroom {
         position: fixed;
         width: 100%;
@@ -849,7 +849,7 @@ Navbar CSS
             }
         }
     }
-    &#header.headroom.is-sticky {
+    &headroom.is-sticky {
         background-color: $black-color !important;
     }
 }
@@ -857,7 +857,7 @@ Navbar CSS
 // Mobile and iPad Navbar
 @media only screen and (max-width: 991px) {
 
-    #header {
+    header {
         padding: {
             top: 15px;
             bottom: 15px;
@@ -947,7 +947,7 @@ Main Banner CSS
     position: relative;
     height: 910px;
     z-index: 1;
-    background: transparent url(../img/banner-bg1.webp) right top no-repeat;
+    background: transparent url(../../assets/img/banner-bg1.webp) right top no-repeat;
 
     .hero-content {
         h1 {
@@ -1467,7 +1467,7 @@ About CSS
 Why Choose US CSS
 =================================================*/
 .why-choose-us {
-    background: transparent url(../img/banner-bg1.webp) right top no-repeat;
+    background: transparent url(../../assets/img/banner-bg1.webp) right top no-repeat;
     position: relative;
     z-index: 1;
 
@@ -2681,7 +2681,7 @@ Fun Facts CSS
         position: relative;
         z-index: 1;
         background: {
-            image: url(../img/bigdata-analytics/funfacts-bg.jpg);
+            image: url(../../assets/img/bigdata-analytics/funfacts-bg.jpg);
             position: center center;
             size: cover;
             repeat: no-repeat;
@@ -5568,7 +5568,7 @@ Page Title CSS
 .page-title-area {
     position: relative;
     z-index: 1;
-    background: transparent url(../img/banner-bg1.webp) right top no-repeat;
+    background: transparent url(../../assets/img/banner-bg1.webp) right top no-repeat;
     padding: {
         top: 190px;
         bottom: 100px;
@@ -7089,7 +7089,7 @@ Coming Soon CSS
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            background: url(../img/oops-bg.jpg) no-repeat;
+            background: url(../../assets/img/oops-bg.jpg) no-repeat;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background: {

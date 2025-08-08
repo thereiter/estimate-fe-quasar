@@ -17,10 +17,11 @@ export default defineConfig((ctx) => {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: [
       'app.scss',
-      'template/bootstrap-fixed.min.css',
+      'template/bootstrap.min.css',
       'template/animate.min.css',
       'template/meanmenu.css',
       'template/style.scss',
+      'template/responsive.css',
       'template/custom.css',
     ],
 

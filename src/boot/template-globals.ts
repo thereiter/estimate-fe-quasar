@@ -9,9 +9,9 @@ export default defineBoot(({ router, store }) => {
     };
     templateGlobalsState.$patch((state) => {
       // todo: consider removing this
-      state.isIndexPage = matchAgainstRoutes('index');
+      state.isIndexPage = matchAgainstRoutes('app-entry');
       // todo: consider removing this
-      state.isDarkMode = matchAgainstRoutes('index');
+      state.isDarkMode = matchAgainstRoutes('app-entry');
       // todo: find by route children
       // todo: consider removing this
       state.isEstimatePage = matchAgainstRoutes('estimate');

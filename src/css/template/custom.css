@@ -36,41 +36,38 @@
     }
 }
 
-#bx-panel {
-    top:-15px;
-}
-#header.headroom{
+.header-container.headroom{
     padding-bottom:5px;
     padding-top:initial;
     z-index:999;
 }
 
-#header.headroom.is-sticky{
+.header-container.headroom.is-sticky{
     padding-bottom:5px;
     padding-top:initial;
 }
 
-#header.headroom.is-dark-mode{
+.header-container.headroom.is-dark-mode{
     border-bottom: 1px dashed #687b6f;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#header.headroom.is-dark-mode.is-sticky{
+.header-container.headroom.is-dark-mode.is-sticky{
     border-bottom: none;
     background-color: inherit;
 }
 
-#header.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item.top-item > a,
-#header.headroom.is-dark-mode.is-sticky .mean-bar span,
-#header.headroom.is-dark-mode .startp-nav nav .others-option .btn.btn-light,
-#header.headroom.is-dark-mode .others-option-for-responsive .start-button .btn.btn-light{
+.header-container.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item.top-item > a,
+.header-container.headroom.is-dark-mode.is-sticky .mean-bar span,
+.header-container.headroom.is-dark-mode .startp-nav nav .others-option .btn.btn-light,
+.header-container.headroom.is-dark-mode .others-option-for-responsive .start-button .btn.btn-light{
     color:#fff;
 }
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light{
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light{
     border: 2px dashed #44ce6f;
 }
-#header.headroom.is-dark-mode  .option-inner .language-picker .dropdown-toggle{
+.header-container.headroom.is-dark-mode  .option-inner .language-picker .dropdown-toggle{
     color:#0e314c;
 }
 .others-option-for-responsive .container .container{
@@ -112,33 +109,33 @@
     margin: 0 0 7px 0;
 }
 @media only screen and (max-width: 991px){
-    #header.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal span,
-    #header.headroom.is-dark-mode .others-option-for-responsive .dot-menu .inner .circle{
+    .header-container.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal span,
+    .header-container.headroom.is-dark-mode .others-option-for-responsive .dot-menu .inner .circle{
         background: #fff;
     }
-    #header.headroom.is-dark-mode.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal span,
-    #header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .dot-menu .inner .circle{
+    .header-container.headroom.is-dark-mode.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal span,
+    .header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .dot-menu .inner .circle{
         background: #0e314c;
     }
 
-    #header.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal:hover span,
-    #header.headroom.is-dark-mode .others-option-for-responsive .dot-menu .inner:hover .circle{
+    .header-container.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal:hover span,
+    .header-container.headroom.is-dark-mode .others-option-for-responsive .dot-menu .inner:hover .circle{
         background: #44ce6f;
     }
-    #header.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal{
+    .header-container.headroom.is-dark-mode .startp-responsive-nav .mean-container a.meanmenu-reveal{
         color:#fff;
     }
-    #header.headroom .startp-responsive-nav .mean-container a.meanmenu-reveal:hover{
+    .header-container.headroom .startp-responsive-nav .mean-container a.meanmenu-reveal:hover{
         color:#44ce6f;
     }
-    #header.headroom.is-dark-mode.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal{
+    .header-container.headroom.is-dark-mode.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal{
         color:#0e314c;
     }
-    #header.headroom.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal:hover{
+    .header-container.headroom.is-sticky .startp-responsive-nav .mean-container a.meanmenu-reveal:hover{
         color:#44ce6f;
     }
-    #header.headroom .startp-responsive-nav .mean-container a.meanmenu-reveal:hover span,
-    #header.headroom .others-option-for-responsive .dot-menu .inner:hover .circle{
+    .header-container.headroom .startp-responsive-nav .mean-container a.meanmenu-reveal:hover span,
+    .header-container.headroom .others-option-for-responsive .dot-menu .inner:hover .circle{
         background: #44ce6f;
     }
     .startp-responsive-nav .startp-responsive-menu.mean-container .mean-nav ul li li a,
@@ -153,49 +150,49 @@
     }
 }
 
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item.top-item > a,
-#header.headroom.is-dark-mode.is-sticky .mean-bar span{
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item.top-item > a,
+.header-container.headroom.is-dark-mode.is-sticky .mean-bar span{
     color:#4a6f8a;
 }
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option svg {
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option svg {
     color:#000;
 }
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:hover,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:focus,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:active,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:hover svg,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:focus svg,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:active svg {
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:hover,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:focus,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:active,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:hover svg,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:focus svg,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .others-option .btn.btn-light:active svg {
     color:#fff !important;
 }
 
-#header.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a:hover,
-#header.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a:focus,
-#header.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a.active,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a:hover,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a:focus,
-#header.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a.active,
-#header.headroom.is-dark-mode .others-option-for-responsive .start-button a:hover,
-#header.headroom.is-dark-mode .others-option-for-responsive .start-button a:focus,
-#header.headroom.is-dark-mode .others-option-for-responsive .start-button a.active,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a:hover,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a:focus,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a.active{
+.header-container.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a:hover,
+.header-container.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a:focus,
+.header-container.headroom.is-dark-mode .startp-nav nav .navbar-nav .nav-item a.active,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a:hover,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a:focus,
+.header-container.headroom.is-dark-mode.is-sticky .startp-nav nav .navbar-nav .nav-item a.active,
+.header-container.headroom.is-dark-mode .others-option-for-responsive .start-button a:hover,
+.header-container.headroom.is-dark-mode .others-option-for-responsive .start-button a:focus,
+.header-container.headroom.is-dark-mode .others-option-for-responsive .start-button a.active,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a:hover,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a:focus,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button a.active{
     color: #44ce6f;
 }
 
 
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button svg {
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button svg {
     color:#000;
 }
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:hover,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:focus,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:active,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:hover svg,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:focus svg,
-#header.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:active svg {
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:hover,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:focus,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:active,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:hover svg,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:focus svg,
+.header-container.headroom.is-dark-mode.is-sticky .others-option-for-responsive .start-button .btn.btn-light:active svg {
     color:#fff !important;
 }
 
@@ -214,30 +211,30 @@
 .logo-black.logo-footer{
     width:260px;
 }
-#header.headroom.is-dark-mode .logo-black{
+.header-container.headroom.is-dark-mode .logo-black{
     display:none;
 }
-#header.headroom.is-dark-mode .logo-white,
-#header.headroom .logo-white{
+.header-container.headroom.is-dark-mode .logo-white,
+.header-container.headroom .logo-white{
     display:block;
 }
-#header.headroom.is-dark-mode.is-sticky .logo-white-mob,
-#header.headroom.is-dark-mode.is-sticky .logo-black-mob,
-#header.headroom.is-dark-mode .logo-white-mob,
-#header.headroom.is-dark-mode .logo-black-mob,
-#header.headroom.is-sticky .logo-white-mob,
-#header.headroom.is-sticky .logo-black-mob,
-#header.headroom .logo-white-mob,
-#header.headroom .logo-black-mob {
+.header-container.headroom.is-dark-mode.is-sticky .logo-white-mob,
+.header-container.headroom.is-dark-mode.is-sticky .logo-black-mob,
+.header-container.headroom.is-dark-mode .logo-white-mob,
+.header-container.headroom.is-dark-mode .logo-black-mob,
+.header-container.headroom.is-sticky .logo-white-mob,
+.header-container.headroom.is-sticky .logo-black-mob,
+.header-container.headroom .logo-white-mob,
+.header-container.headroom .logo-black-mob {
     display:none;
 }
-#header.headroom.is-dark-mode.is-sticky .logo-white,
-#header.headroom.is-sticky .logo-white{
+.header-container.headroom.is-dark-mode.is-sticky .logo-white,
+.header-container.headroom.is-sticky .logo-white{
     display:none;
 }
 
-#header.headroom.is-dark-mode.is-sticky .logo-black,
-#header.headroom.is-sticky .logo-black{
+.header-container.headroom.is-dark-mode.is-sticky .logo-black,
+.header-container.headroom.is-sticky .logo-black{
     display:block;
 }
 .others-option-for-responsive .others-option{
@@ -265,7 +262,7 @@
 }
 .bigdata-analytics-banner{
     padding-top:140px;
-    background-image: url(../img/bigdata-analytics/main-banner.webp);
+    background-image: url(../../assets/img/bigdata-analytics/main-banner.webp);
 }
 .banner-boxes-area{
     margin-top:100px;
@@ -282,7 +279,7 @@
     padding-right: var(--bs-gutter-x,2rem);
     padding-left: var(--bs-gutter-x,2rem);
 }
-#header.headroom.is-dark-mode .language-picker{
+.header-container.headroom.is-dark-mode .language-picker{
     left:auto;
 }
 .header-button{
@@ -402,18 +399,18 @@
 }
 
 @media (min-width:991px) and (max-width: 1300px){
-    #header.headroom.is-dark-mode.is-sticky .logo-black-mob,
-    #header.headroom.is-dark-mode .logo-white-mob,
-    #header.headroom.is-sticky .logo-black-mob,
-    #header.headroom .logo-black-mob,
-    #header.headroom .logo-white-mob {
+    .header-container.headroom.is-dark-mode.is-sticky .logo-black-mob,
+    .header-container.headroom.is-dark-mode .logo-white-mob,
+    .header-container.headroom.is-sticky .logo-black-mob,
+    .header-container.headroom .logo-black-mob,
+    .header-container.headroom .logo-white-mob {
         display:block;
     }
-    #header.headroom.is-dark-mode.is-sticky .logo-black,
-    #header.headroom.is-dark-mode .logo-white,
-    #header.headroom.is-sticky .logo-black,
-    #header.headroom .logo-white,
-    #header.headroom .logo-black{
+    .header-container.headroom.is-dark-mode.is-sticky .logo-black,
+    .header-container.headroom.is-dark-mode .logo-white,
+    .header-container.headroom.is-sticky .logo-black,
+    .header-container.headroom .logo-white,
+    .header-container.headroom .logo-black{
         display:none;
     }
 }
