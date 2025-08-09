@@ -19,7 +19,6 @@ export default defineConfig((ctx) => {
       'app.scss',
       'template/bootstrap.min.css',
       'template/animate.min.css',
-      'template/meanmenu.css',
       'template/style.scss',
       'template/responsive.css',
       'template/custom.css',
@@ -129,6 +128,16 @@ export default defineConfig((ctx) => {
       config: {
         loading: {},
         notify: {},
+        brand: {
+          primary: '#44ce6f',
+          secondary: '#6084a4',
+          accent: '#9C27B0',
+          dark: '#1d1d1d',
+          positive: '#21BA45',
+          negative: '#C10015',
+          info: '#31CCEC',
+          warning: '#F2C037',
+        },
       },
     },
 

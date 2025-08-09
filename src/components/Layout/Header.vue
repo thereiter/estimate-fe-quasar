@@ -3,20 +3,54 @@ import { User, Home } from 'lucide-vue-next';
 import { useTemplateGlobals } from 'stores/template-globals';
 import { useAuthStore } from 'stores/auth';
 import TopMenu from 'components/Layout/TopMenu.vue';
+import { onMounted, ref } from 'vue';
+import { QScrollObserver, type QScrollObserverProps } from 'quasar';
+import { scroll } from 'quasar';
+import MobileTopMenu from 'components/Layout/MobileTopMenu.vue';
+const { getVerticalScrollPosition, getScrollTarget } = scroll;
+
 const templateGlobalsState = useTemplateGlobals();
 const authStore = useAuthStore();
+
+const isSticky = ref<boolean>(false);
+
+onMounted(() => {
+  const body = document.body;
+  if (!body) return;
+
+  const scrollTarget = getScrollTarget(body);
+
+  if (!scrollTarget) return;
+
+  isSticky.value = getVerticalScrollPosition(scrollTarget) > 0;
+});
+
+const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
+  if (!details) return;
+  isSticky.value = details.position.top > 0;
+};
 </script>
 
 <template>
   <header
+    ref="header"
     class="header-container headroom"
-    :class="{ 'is-dark-mode': templateGlobalsState.isDarkMode }"
+    :class="{ 'is-dark-mode': templateGlobalsState.isDarkMode, 'is-sticky': isSticky }"
   >
+    <q-scroll-observer axis="vertical" @scroll="scrollHandler" debounce="50" />
     <div class="startp-responsive-nav">
       <div class="container">
         <div class="startp-responsive-menu">
           <div class="logo">
             <router-link :to="{ name: 'app-entry' }">
+              <picture>
+                <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
+                <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
+              </picture>
+              <picture>
+                <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
+                <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
+              </picture>
               <template v-if="templateGlobalsState.isDarkMode">
                 <picture>
                   <source srcset="~assets/img/logo_white_200.webp" type="image/webp" />
@@ -27,21 +61,10 @@ const authStore = useAuthStore();
                   <img class="logo-white-mob" src="~assets/img/logo_white_200_mob.png" alt="logo" />
                 </picture>
               </template>
-              <template v-else>
-                <picture>
-                  <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
-                  <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
-                </picture>
-                <picture>
-                  <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
-                  <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
-                </picture>
-                ></template
-              >
             </router-link>
 
             <div class="startp-nav">
-              <div class="container-fluid">
+              <div class="container-fluid flex">
                 <nav class="navbar navbar-expand-md navbar-light">
                   <div class="others-option">
                     <template v-if="authStore.isAuthorized">
@@ -76,6 +99,7 @@ const authStore = useAuthStore();
                     </router-link>
                   </div>
                 </nav>
+                <MobileTopMenu />
               </div>
             </div>
           </div>
@@ -87,6 +111,16 @@ const authStore = useAuthStore();
       <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light">
           <router-link class="navbar-brand" :to="{ name: 'app-entry' }">
+            <template>
+              <picture>
+                <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
+                <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
+              </picture>
+              <picture>
+                <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
+                <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
+              </picture>
+            </template>
             <template v-if="templateGlobalsState.isDarkMode">
               <picture>
                 <source srcset="~assets/img/logo_white_200.webp" type="image/webp" />
@@ -95,16 +129,6 @@ const authStore = useAuthStore();
               <picture>
                 <source srcset="~assets/img/logo_white_200_mob.webp" type="image/webp" />
                 <img class="logo-white-mob" src="~assets/img/logo_white_200_mob.png" alt="logo" />
-              </picture>
-            </template>
-            <template v-else>
-              <picture>
-                <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
-                <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
-              </picture>
-              <picture>
-                <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
-                <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
               </picture>
             </template>
           </router-link>

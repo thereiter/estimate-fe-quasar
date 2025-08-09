@@ -1,3 +1,10 @@
+.primary-green {
+    color: #44ce6f !important;
+}
+.primary-white {
+    color: #fff !important;
+}
+
 .chat-button {
     display: none;
     position: fixed;
@@ -384,7 +391,6 @@
     display:flex;
     width:auto;
     z-index: 9999;
-    margin-right: 40px;
 }
 .startp-responsive-menu .mean-bar{
     z-index: 9999;
