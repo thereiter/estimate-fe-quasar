@@ -23,14 +23,13 @@
     <q-scroll-area class="fit">
       <q-list>
         <template v-for="(menuItem, index) in menuList" :key="index">
-          <q-item clickable v-ripple class="row-fix">
+          <q-item clickable v-ripple class="row-fix" :to="{ name: menuItem.name }">
             <q-item-section avatar>
               <q-icon :name="menuItem.icon" />
             </q-item-section>
 
             <q-item-section>{{ menuItem.label }}</q-item-section>
           </q-item>
-          <q-separator :key="'sep' + index" v-if="menuItem.separator" />
         </template>
       </q-list>
     </q-scroll-area>
@@ -43,39 +42,43 @@ import { ref } from 'vue';
 const menuList = [
   {
     icon: 'inbox',
-    label: 'Inbox',
-    separator: true,
+    label: 'Інструкція',
+    name: 'manual',
   },
   {
     icon: 'send',
-    label: 'Outbox',
-    separator: false,
+    label: 'Переваги',
+    name: 'advantages',
   },
   {
     icon: 'delete',
-    label: 'Trash',
-    separator: false,
+    label: 'Ціни',
+    name: 'price',
   },
   {
     icon: 'error',
-    label: 'Spam',
-    separator: true,
+    label: 'Часті питання',
+    name: 'faq',
   },
   {
     icon: 'settings',
-    label: 'Settings',
-    separator: false,
+    label: 'Оцінити квартиру',
+    name: 'flat-sale',
   },
   {
     icon: 'feedback',
-    label: 'Send Feedback',
-    separator: false,
+    label: 'Оцінити приватний будинок',
+    name: 'house-sale',
   },
   {
     icon: 'help',
-    iconColor: 'primary',
-    label: 'Help',
-    separator: false,
+    label: 'Оцінити аренду квартири',
+    name: 'flat-rent',
+  },
+  {
+    icon: 'help',
+    label: 'Оцінити аренду приватного будинку',
+    name: 'house-rent',
   },
 ];
 
