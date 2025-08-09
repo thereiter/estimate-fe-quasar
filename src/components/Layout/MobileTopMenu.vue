@@ -3,7 +3,11 @@
     flat
     @click="drawer = !drawer"
     color="primary"
-    :class="drawer ? 'primary-green' : 'primary-white'"
+    :class="{
+      'primary-green': drawer,
+      'primary-white': !drawer && templateGlobalsState.isDarkMode && !isSticky,
+      'primary-black': !drawer && (isSticky || !templateGlobalsState.isDarkMode),
+    }"
     square
     dense
     stack
@@ -22,6 +26,11 @@
   >
     <q-scroll-area class="fit">
       <q-list>
+        <q-item :to="{ name: 'app-entry' }" class="block">
+          <q-item-section>
+            <q-img src="~assets/img/logo_black_200.webp" position="center" fit="none" alt="logo" />
+          </q-item-section>
+        </q-item>
         <template v-for="(menuItem, index) in menuList" :key="index">
           <q-item clickable v-ripple class="row-fix" :to="{ name: menuItem.name }">
             <q-item-section avatar>
@@ -36,60 +45,60 @@
   </q-drawer>
 </template>
 
-<script>
+<script setup lang="ts">
+defineProps({
+  isSticky: {
+    type: Boolean,
+    default: false,
+  },
+});
 import { ref } from 'vue';
-
+import { useTemplateGlobals } from 'stores/template-globals.js';
+const templateGlobalsState = useTemplateGlobals();
 const menuList = [
   {
-    icon: 'inbox',
+    icon: 'description',
     label: 'Інструкція',
     name: 'manual',
   },
   {
-    icon: 'send',
+    icon: 'star',
     label: 'Переваги',
     name: 'advantages',
   },
   {
-    icon: 'delete',
+    icon: 'attach_money',
     label: 'Ціни',
     name: 'price',
   },
   {
-    icon: 'error',
+    icon: 'help_outline',
     label: 'Часті питання',
     name: 'faq',
   },
   {
-    icon: 'settings',
+    icon: 'apartment',
     label: 'Оцінити квартиру',
     name: 'flat-sale',
   },
   {
-    icon: 'feedback',
+    icon: 'home',
     label: 'Оцінити приватний будинок',
     name: 'house-sale',
   },
   {
-    icon: 'help',
+    icon: 'business',
     label: 'Оцінити аренду квартири',
     name: 'flat-rent',
   },
   {
-    icon: 'help',
+    icon: 'villa',
     label: 'Оцінити аренду приватного будинку',
     name: 'house-rent',
   },
 ];
 
-export default {
-  setup() {
-    return {
-      drawer: ref(false),
-      menuList,
-    };
-  },
-};
+const drawer = ref(false);
 </script>
 <style scoped>
 .row-fix,

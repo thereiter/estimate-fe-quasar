@@ -43,15 +43,17 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
         <div class="startp-responsive-menu">
           <div class="logo">
             <router-link :to="{ name: 'app-entry' }">
-              <picture>
-                <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
-                <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
-              </picture>
-              <picture>
-                <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
-                <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
-              </picture>
-              <template v-if="templateGlobalsState.isDarkMode">
+              <div class="inline-block">
+                <picture>
+                  <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
+                  <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
+                </picture>
+                <picture>
+                  <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
+                  <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
+                </picture>
+              </div>
+              <div v-if="templateGlobalsState.isDarkMode" class="inline-block">
                 <picture>
                   <source srcset="~assets/img/logo_white_200.webp" type="image/webp" />
                   <img class="logo-white" src="~assets/img/logo_white_200.png" alt="logo" />
@@ -60,14 +62,14 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                   <source srcset="~assets/img/logo_white_200_mob.webp" type="image/webp" />
                   <img class="logo-white-mob" src="~assets/img/logo_white_200_mob.png" alt="logo" />
                 </picture>
-              </template>
+              </div>
             </router-link>
 
             <div class="startp-nav">
               <div class="container-fluid flex">
                 <nav class="navbar navbar-expand-md navbar-light">
                   <div class="others-option">
-                    <template v-if="authStore.isAuthorized">
+                    <div v-if="authStore.isAuthorized" class="inline-block">
                       <router-link
                         :to="{ name: 'personal' }"
                         :class="{ active: templateGlobalsState.isActivePage }"
@@ -78,8 +80,8 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                           {{ authStore.login }}
                         </span>
                       </router-link>
-                    </template>
-                    <template v-else>
+                    </div>
+                    <div class="inline-block" v-else>
                       <router-link
                         :to="{ name: 'auth' }"
                         :class="{ active: templateGlobalsState.isActivePage }"
@@ -88,7 +90,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                         <User />
                         <span class="header-personal-link-text link-text"> Особистий кабінет </span>
                       </router-link>
-                    </template>
+                    </div>
                     <router-link
                       :to="{ name: 'estimate' }"
                       :class="{ active: templateGlobalsState.isActivePage }"
@@ -99,7 +101,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                     </router-link>
                   </div>
                 </nav>
-                <MobileTopMenu />
+                <MobileTopMenu :isSticky="isSticky" />
               </div>
             </div>
           </div>
@@ -111,7 +113,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
       <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light">
           <router-link class="navbar-brand" :to="{ name: 'app-entry' }">
-            <template>
+            <div class="inline-block">
               <picture>
                 <source srcset="~assets/img/logo_black_200.webp" type="image/webp" />
                 <img class="logo-black" src="~assets/img/logo_black_200.png" alt="logo" />
@@ -120,8 +122,8 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                 <source srcset="~assets/img/logo_black_200_mob.webp" type="image/webp" />
                 <img class="logo-black-mob" src="~assets/img/logo_black_200_mob.png" alt="logo" />
               </picture>
-            </template>
-            <template v-if="templateGlobalsState.isDarkMode">
+            </div>
+            <div v-if="templateGlobalsState.isDarkMode" class="inline-block">
               <picture>
                 <source srcset="~assets/img/logo_white_200.webp" type="image/webp" />
                 <img class="logo-white" src="~assets/img/logo_white_200.png" alt="logo" />
@@ -130,12 +132,12 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                 <source srcset="~assets/img/logo_white_200_mob.webp" type="image/webp" />
                 <img class="logo-white-mob" src="~assets/img/logo_white_200_mob.png" alt="logo" />
               </picture>
-            </template>
+            </div>
           </router-link>
 
           <TopMenu />
           <div class="others-option">
-            <template v-if="authStore.isAuthorized">
+            <div v-if="authStore.isAuthorized" class="inline-block">
               <router-link
                 :to="{ name: 'personal' }"
                 :class="{ active: templateGlobalsState.isActivePage }"
@@ -146,8 +148,8 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                   {{ authStore.login }}
                 </span>
               </router-link>
-            </template>
-            <template v-else>
+            </div>
+            <div v-else class="inline-block">
               <router-link
                 :to="{ name: 'auth' }"
                 :class="{ active: templateGlobalsState.isActivePage }"
@@ -156,7 +158,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                 <User />
                 <span class="header-personal-link-text"> Особистий кабінет </span>
               </router-link>
-            </template>
+            </div>
 
             <router-link
               :to="{ name: 'estimate' }"

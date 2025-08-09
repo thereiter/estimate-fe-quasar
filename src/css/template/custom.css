@@ -4,6 +4,9 @@
 .primary-white {
     color: #fff !important;
 }
+.primary-black {
+    color: #000000 !important;
+}
 
 .chat-button {
     display: none;
