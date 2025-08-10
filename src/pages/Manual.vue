@@ -138,32 +138,26 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { ref } from 'vue';
-import { useQuasar } from 'quasar';
-import { useTemplateGlobals } from 'stores/template-globals';
+import { useMeta } from 'quasar';
 
 export default defineComponent({
   name: 'Manual',
   setup() {
-    const templateGlobalsState = useTemplateGlobals();
-    // function loadData() {
-    //   api
-    //     .get('/users')
-    //     .then((response) => {
-    //       console.log(response);
-    //       console.log(response.data);
-    //       data.value = response.data;
-    //     })
-    //     .catch(() => {
-    //       $q.notify({
-    //         color: 'negative',
-    //         position: 'top',
-    //         message: 'Loading failed',
-    //         icon: 'report_problem',
-    //       });
-    //     });
-    // }
-    //loadData();
+    const metaData = {
+      title: 'Інструкція користувача сервісом онлайн оцінки нерухомості',
+      meta: {
+        description: {
+          name: 'description',
+          content: 'Інструкція користувача сервісом оцінки нерухомості',
+        },
+        keywords: {
+          name: 'keywords',
+          content: 'оцінка нерухомості, оцінка нерухомості онлайн',
+        },
+        robots: { name: 'robots', content: 'index, follow' },
+      },
+    };
+    useMeta(metaData);
   },
 });
 </script>

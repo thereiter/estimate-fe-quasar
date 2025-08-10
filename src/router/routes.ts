@@ -1,4 +1,9 @@
 import type { RouteRecordRaw } from 'vue-router';
+declare module 'vue-router' {
+  interface RouteMeta {
+    sectionTitle?: string;
+  }
+}
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,31 +20,49 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'manual/',
         name: 'manual',
+        meta: {
+          sectionTitle: 'Інструкція користувача',
+        },
         component: () => import('pages/Manual.vue'),
       },
       {
         path: 'advantages/',
         name: 'advantages',
+        meta: {
+          sectionTitle: 'Переваги оцінки нерухомості онлайн',
+        },
         component: () => import('pages/Advantages.vue'),
       },
       {
         path: 'price/',
         name: 'price',
+        meta: {
+          sectionTitle: 'Вартість оцінки',
+        },
         component: () => import('pages/Price.vue'),
       },
       {
         path: 'faq/',
         name: 'faq',
+        meta: {
+          sectionTitle: 'Часті питання',
+        },
         component: () => import('pages/Faq.vue'),
       },
       {
         path: 'terms-and-conditions/',
         name: 'terms-and-conditions',
+        meta: {
+          sectionTitle: 'Публічна оферта — умови користування сервісом',
+        },
         component: () => import('pages/TermsAndConditions.vue'),
       },
       {
         path: 'privacy-policy/',
         name: 'privacy-policy',
+        meta: {
+          sectionTitle: 'Політика конфіденційності',
+        },
         component: () => import('pages/PrivacyPolicy.vue'),
       },
       {

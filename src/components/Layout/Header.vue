@@ -7,13 +7,17 @@ import { onMounted, ref } from 'vue';
 import { QScrollObserver, type QScrollObserverProps } from 'quasar';
 import { scroll } from 'quasar';
 import MobileTopMenu from 'components/Layout/MobileTopMenu.vue';
+import { useRouter } from 'vue-router';
 const { getVerticalScrollPosition, getScrollTarget } = scroll;
-
+const router = useRouter();
 const templateGlobalsState = useTemplateGlobals();
 const authStore = useAuthStore();
 
 const isSticky = ref<boolean>(false);
-
+const sectionTitle = ref<string | null>(router.currentRoute.value.meta.sectionTitle);
+router.afterEach((to) => {
+  sectionTitle.value = to.meta.sectionTitle;
+});
 onMounted(() => {
   const body = document.body;
   if (!body) return;
@@ -364,7 +368,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
     <div class="d-table">
       <div class="d-table-cell">
         <div class="container">
-          <h2>Section title</h2>
+          <h2>{{ sectionTitle }}</h2>
         </div>
       </div>
     </div>
