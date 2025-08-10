@@ -217,7 +217,7 @@
               щоб робити точну та актуальну оцінку ринку нерухомості.
             </p>
             <p>
-              Наша система оцінки із використанням штучного інтеллекту немає таких недоліків. Ми
+              Наша система оцінки із використанням штучного інтелекту немає таких недоліків. Ми
               знаємо і пам'ятаємо все.
             </p>
             <br />
@@ -241,7 +241,7 @@
           <p>
             Заповнити невелику форму з основними параметрами вашої нерухомості — це все, що вам
             потрібно зробити. Якщо у вашої нерухомості є будь-який ремонт або оздоблення приміщення
-            — зробіть від 3 до 50 фотографій інтер'єру та завантажте іх разом з формою. Наша
+            — зробіть від 3 до 50 фотографій інтер'єру та завантажте їх разом з формою. Наша
             унікальна система штучного інтелекту проаналізує фотографії, що дозволить зробити
             максимально точну оцінку.
           </p>
@@ -282,13 +282,13 @@
               <h2>Сучасно</h2>
               <div class="bar"></div>
               <p>
-                Застосування штучного інтеллекту стає повсякденним у нашому житті. Сфера нерухомості
+                Застосування штучного інтелекту стає повсякденним у нашому житті. Сфера нерухомості
                 не є виключенням. Кожен день ми оброблюємо гігабайти інформації та покращуємо наш
                 алгоритм оцінки.
               </p>
               <p>
                 Унікальна система аналізу фотографій нерухомості дозволяє дотримуватися алгоритму
-                професійної оцінки співробітника агенції нерухомостію.
+                професійної оцінки співробітника агенції нерухомості.
               </p>
               <p>Але ми робимо це набагато точніше і швидше.</p>
               <br />
@@ -301,14 +301,13 @@
       </div>
     </div>
   </div>
-  <div class="funfacts-area ptb-80">
+  <div class="funfacts-area ptb-80" ref="countersRef">
     <div class="container">
       <div class="section-title">
         <h2>Найкращий сервіс</h2>
         <div class="bar"></div>
         <p>
-          Кожен день ми працюємо для того, щоб наша система оцінки залишалася кращою на ринку
-          України
+          Ми пишаємося нашими досягненнями і постійно працюємо над покращенням якості наших послуг.
         </p>
       </div>
 
@@ -316,137 +315,27 @@
         <div class="col-lg-3 col-md-3 col-6 col-sm-3">
           <div class="funfact">
             <h3>
-              <span class="odometer odometer-auto-theme" data-count="2000000"
-                ><div class="odometer-inside">
-                  <span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">2</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-formatting-mark">,</span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-formatting-mark">,</span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  >
-                </div></span
+              <span class="counter-number">{{ formatNumber(Math.floor(counter1 || 0)) }}</span
               >+
             </h3>
-            <p>Оброблено оголошень</p>
+            <p>Оцінок нерухомості</p>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-3 col-6 col-sm-3">
           <div class="funfact">
             <h3>
-              <span class="odometer odometer-auto-theme" data-count="900"
-                ><div class="odometer-inside">
-                  <span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">9</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  ><span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">0</span></span
-                        ></span
-                      ></span
-                    ></span
-                  >
-                </div></span
+              <span class="counter-number">{{ formatNumber(Math.floor(counter2 || 0)) }}</span
               >+
             </h3>
-            <p>Гігабайт зображень оброблено</p>
+            <p>Задоволених клієнтів</p>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-3 col-6 col-sm-3">
           <div class="funfact">
             <h3>
-              <span class="odometer odometer-auto-theme" data-count="4"
-                ><div class="odometer-inside">
-                  <span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">4</span></span
-                        ></span
-                      ></span
-                    ></span
-                  >
-                </div></span
+              <span class="counter-number">{{ formatNumber(Math.floor(counter3 || 0)) }}</span
               >+
             </h3>
             <p>Років досвіду</p>
@@ -456,19 +345,7 @@
         <div class="col-lg-3 col-md-3 col-6 col-sm-3">
           <div class="funfact">
             <h3>
-              <span class="odometer odometer-auto-theme" data-count="5"
-                ><div class="odometer-inside">
-                  <span class="odometer-digit"
-                    ><span class="odometer-digit-spacer">8</span
-                    ><span class="odometer-digit-inner"
-                      ><span class="odometer-ribbon"
-                        ><span class="odometer-ribbon-inner"
-                          ><span class="odometer-value">5</span></span
-                        ></span
-                      ></span
-                    ></span
-                  >
-                </div></span
+              <span class="counter-number">{{ formatNumber(Math.floor(counter4 || 0)) }}</span
               >%
             </h3>
             <p>± Середня похибка оцінки</p>
@@ -493,27 +370,86 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { useMeta } from 'quasar';
+import { useTransition, useIntersectionObserver } from '@vueuse/core';
+import { shallowRef } from 'vue';
 
 export default defineComponent({
   name: 'Advantages',
   setup() {
     const metaData = {
-      title: 'Переваги оцінки нерухомості онлайн — Estimate Real Estate',
+      title: 'Переваги',
       meta: {
         description: {
           name: 'description',
-          content: 'Переваги оцінки нерухомості онлайн',
+          content: 'Переваги',
         },
-        keywords: {
-          name: 'keywords',
-          content: 'Переваги оцінки нерухомості онлайн',
-        },
-        robots: { name: 'robots', content: 'index, follow' },
       },
     };
     useMeta(metaData);
+
+    // Target values for counters
+    const targetValue1 = shallowRef(0);
+    const targetValue2 = shallowRef(0);
+    const targetValue3 = shallowRef(0);
+    const targetValue4 = shallowRef(0);
+
+    // Animated values using useTransition
+    const counter1 = useTransition(targetValue1, {
+      duration: 2000,
+      transition: [0.75, 0, 0.25, 1],
+    });
+
+    const counter2 = useTransition(targetValue2, {
+      duration: 2500,
+      transition: [0.75, 0, 0.25, 1],
+    });
+
+    const counter3 = useTransition(targetValue3, {
+      duration: 1500,
+      transition: [0.75, 0, 0.25, 1],
+    });
+
+    const counter4 = useTransition(targetValue4, {
+      duration: 1800,
+      transition: [0.75, 0, 0.25, 1],
+    });
+
+    const countersRef = ref(null);
+
+    const formatNumber = (num) => {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    };
+
+    // Use intersection observer to trigger animation
+    const { stop } = useIntersectionObserver(
+      countersRef,
+      ([{ isIntersecting }]) => {
+        if (isIntersecting) {
+          // Start the animations by setting target values
+          targetValue1.value = 2000000;
+          targetValue2.value = 900;
+          targetValue3.value = 4;
+          targetValue4.value = 5;
+
+          // Stop observing after first trigger
+          stop();
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+      },
+    );
+
+    return {
+      counter1,
+      counter2,
+      counter3,
+      counter4,
+      countersRef,
+      formatNumber,
+    };
   },
 });
 </script>
