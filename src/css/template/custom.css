@@ -8,6 +8,12 @@
     color: #000000 !important;
 }
 
+.btn-primary-force{
+    color: #ffffff;
+    background-color: #44ce6f;
+    box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+}
+
 .chat-button {
     display: none;
     position: fixed;

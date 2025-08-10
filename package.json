@@ -23,6 +23,7 @@
     "@types/leaflet.fullscreen": "^3.0.2",
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
+    "@vueuse/core": "^13.6.0",
     "axios": "^1.2.1",
     "compression": "^1.8.1",
     "html2pdf.js": "^0.10.3",
