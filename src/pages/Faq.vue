@@ -5,7 +5,7 @@
         <ul class="accordion">
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i> Чим ваш сервіс може бути корисним?
+              <Plus /> Чим ваш сервіс може бути корисним?
             </a>
 
             <ul class="accordion-content p-2">
@@ -32,7 +32,7 @@
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
+              <Plus />
               Як отримати результат оцінки?
             </a>
             <div class="accordion-content p-2">
@@ -45,12 +45,12 @@
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
+              <Plus />
               Як відновити доступ до особистого кабінету?
             </a>
             <div class="accordion-content p-2">
               Доступ до особистого кабінету можна відновити за допомогою
-              <a href="/estimate/auth/"><b>форми відновлення паролю</b></a
+              <router-link :to="{ name: 'auth' }"><b>форми відновлення паролю</b></router-link
               >.<br />
               Якщо ви втратили доступ до пошти, яку ви вказали при реєстрації, або втратили доступ
               до акаунту соціальної мережі, через яку ви реєструвалися, то відновити доступ до
@@ -64,18 +64,19 @@
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
+              <Plus />
               Як виглядає зразок результатів оцінки?
             </a>
             <div class="accordion-content p-2">
-              Зразок результатів можно переглянути <a href="/manual/"><b>тут</b></a
+              Зразок результатів можно переглянути
+              <router-link :to="{ name: 'manual' }"><b>тут</b></router-link
               >.
             </div>
           </li>
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i> Наскільки точні результати оцінки?
+              <Plus /> Наскільки точні результати оцінки?
             </a>
             <div class="accordion-content p-2">
               Якість оцінки залежить від кількості доступної інформації в районі розташування
@@ -96,7 +97,7 @@
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
+              <Plus />
               Скільки коштує оцінка?
             </a>
             <div class="accordion-content p-2">Безкоштовно.</div>
@@ -104,25 +105,39 @@
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
-              Чи не потраплять мої особисті дані до третіх осіб?
+              <Plus />
+              Чи не потрапляють мої особисті дані до третіх осіб?
             </a>
             <div class="accordion-content p-2">
               Наш сервіс ніколи не передає ваші персональні дані третім особам.<br />
-              — <a href="/terms-and-conditions/"><b>Умови користування сервісом</b></a> <br />
-              — <a href="/privacy-policy/"><b>Політика конфіденційності</b></a>
+              —
+              <router-link :to="{ name: 'terms-and-conditions' }"
+                ><b>Умови користування сервісом</b></router-link
+              >
+              <br />
+              —
+              <router-link :to="{ name: 'privacy-policy' }"
+                ><b>Політика конфіденційності</b></router-link
+              >
             </div>
           </li>
 
           <li class="accordion-item">
             <a class="accordion-title" href="javascript:void(0)">
-              <i class="flaticon-plus"></i>
-              Чи не потраплять дані про нерухомість до третіх осіб?
+              <Plus />
+              Чи не потрапляють дані про нерухомість до третіх осіб?
             </a>
             <div class="accordion-content p-2">
               Наш сервіс ніколи не передає дані про нерухомість третім особам.<br />
-              — <a href="/terms-and-conditions/"><b>Умови користування сервісом</b></a> <br />
-              — <a href="/privacy-policy/"><b>Політика конфіденційності</b></a>
+              —
+              <router-link :to="{ name: 'terms-and-conditions' }"
+                ><b>Умови користування сервісом</b></router-link
+              >
+              <br />
+              —
+              <router-link :to="{ name: 'privacy-policy' }"
+                ><b>Політика конфіденційності</b></router-link
+              >
             </div>
           </li>
         </ul>
@@ -179,9 +194,13 @@
 <script>
 import { defineComponent } from 'vue';
 import { useMeta } from 'quasar';
+import { Plus } from 'lucide-vue-next';
 
 export default defineComponent({
   name: 'Faq',
+  components: {
+    Plus,
+  },
   setup() {
     const metaData = {
       title: 'ПЧасті питання FAQ сервіса онлайн оцінки нерухомості — Estimate Real Estate',

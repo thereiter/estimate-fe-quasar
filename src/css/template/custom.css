@@ -13,7 +13,16 @@
     background-color: #44ce6f;
     box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
 }
-
+.faq-accordion .accordion .accordion-item .accordion-title svg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    text-align: center;
+    height: 100%;
+    background: #44ce6f;
+    color: #ffffff;
+}
 .chat-button {
     display: none;
     position: fixed;
