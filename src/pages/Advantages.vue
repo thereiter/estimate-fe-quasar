@@ -379,12 +379,17 @@ export default defineComponent({
   name: 'Advantages',
   setup() {
     const metaData = {
-      title: 'Переваги',
+      title: 'Переваги оцінки нерухомості онлайн — Estimate Real Estate',
       meta: {
         description: {
           name: 'description',
-          content: 'Переваги',
+          content: 'Переваги оцінки нерухомості онлайн',
         },
+        keywords: {
+          name: 'keywords',
+          content: 'Переваги оцінки нерухомості онлайн',
+        },
+        robots: { name: 'robots', content: 'index, follow' },
       },
     };
     useMeta(metaData);
