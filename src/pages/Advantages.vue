@@ -1,114 +1,117 @@
 <template>
   <div class="ml-services-area ptb-80">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/5.png.webp" type="image/webp" />
-                <img src="~assets/img/services-image/5.png" alt="Аналіз фотографій нерухомості" />
-              </picture>
+      <Suspense>
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/5.png.webp" type="image/webp" />
+                  <img src="~assets/img/services-image/5.png" alt="Аналіз фотографій нерухомості" />
+                </picture>
+              </div>
+              <h3>Аналіз фотографій нерухомості</h3>
+              <p>
+                Технологія, яка немає аналогів на ринку. В процесі оцінювання за допомогою нейронних
+                мереж оцінюється візуальний стан інтер'єру нерухомості. Це дозволяє досягти
+                максимально точної оцінки.
+              </p>
             </div>
-            <h3>Аналіз фотографій нерухомості</h3>
-            <p>
-              Технологія, яка немає аналогів на ринку. В процесі оцінювання за допомогою нейронних
-              мереж оцінюється візуальний стан інтер'єру нерухомості. Це дозволяє досягти
-              максимально точної оцінки.
-            </p>
           </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/2.png.webp" type="image/webp" />
-                <img
-                  src="~assets/img/services-image/2.png"
-                  alt="Автоматичний пошук схожих оголошень"
-                />
-              </picture>
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/2.png.webp" type="image/webp" />
+                  <img
+                    src="~assets/img/services-image/2.png"
+                    alt="Автоматичний пошук схожих оголошень"
+                  />
+                </picture>
+              </div>
+              <h3>Автоматичний пошук схожих оголошень</h3>
+              <p>
+                Ми швидко знайдемо для вас в інтернеті схожі оголошення, які ви зможете переглянути
+                та порівняти з вашої нерухомістю.
+              </p>
             </div>
-            <h3>Автоматичний пошук схожих оголошень</h3>
-            <p>
-              Ми швидко знайдемо для вас в інтернеті схожі оголошення, які ви зможете переглянути та
-              порівняти з вашої нерухомістю.
-            </p>
           </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/1.png.webp" type="image/webp" />
-                <img
-                  src="~assets/img/services-image/1.png"
-                  alt="Прогноз вирогідності продажу з часом"
-                />
-              </picture>
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/1.png.webp" type="image/webp" />
+                  <img
+                    src="~assets/img/services-image/1.png"
+                    alt="Прогноз вирогідності продажу з часом"
+                  />
+                </picture>
+              </div>
+              <h3>Прогноз вирогідності продажу з часом</h3>
+              <p>
+                Ми проаналізуємо ринок згідно характеристик вашої нерухомості та визначимо
+                вирогідність продажу вашої нерухомості з часом.
+              </p>
             </div>
-            <h3>Прогноз вирогідності продажу з часом</h3>
-            <p>
-              Ми проаналізуємо ринок згідно характеристик вашої нерухомості та визначимо
-              вирогідність продажу вашої нерухомості з часом.
-            </p>
           </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/3.png.webp" type="image/webp" />
-                <img
-                  src="~assets/img/services-image/3.png"
-                  alt="Прогноз вирогідності продажу з часом"
-                />
-              </picture>
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/3.png.webp" type="image/webp" />
+                  <img
+                    src="~assets/img/services-image/3.png"
+                    alt="Прогноз вирогідності продажу з часом"
+                  />
+                </picture>
+              </div>
+              <h3>Автоматична генерація опису нерухомості</h3>
+              <p>
+                Генерація опису нерухомості за допомогою лінгвістичної моделі штучного інтелекту.
+                Допомагаємо створювати описи нерухомості для оголошень.
+              </p>
             </div>
-            <h3>Автоматична генерація опису нерухомості</h3>
-            <p>
-              Генерація опису нерухомості за допомогою лінгвістичної моделі штучного інтелекту.
-              Допомагаємо створювати описи нерухомості для оголошень.
-            </p>
           </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/6.png.webp" type="image/webp" />
-                <img src="~assets/img/services-image/6.png" alt="Величезний об'єм данних" />
-              </picture>
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/6.png.webp" type="image/webp" />
+                  <img src="~assets/img/services-image/6.png" alt="Величезний об'єм данних" />
+                </picture>
+              </div>
+              <h3>Величезний об'єм данних</h3>
+              <p>
+                За декілька років роботи ми проаналізували терабайти данних. Щоденне доповнення та
+                оновлення бази данних дозволяє робити найбільш якісні оцінки у поточний проміжок
+                часу.
+              </p>
             </div>
-            <h3>Величезний об'єм данних</h3>
-            <p>
-              За декілька років роботи ми проаналізували терабайти данних. Щоденне доповнення та
-              оновлення бази данних дозволяє робити найбільш якісні оцінки у поточний проміжок часу.
-            </p>
           </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="single-ml-services-box">
-            <div class="image">
-              <picture>
-                <source srcset="~assets/img/services-image/4.png.webp" type="image/webp" />
-                <img src="~assets/img/services-image/4.png" alt="Безпека" />
-              </picture>
+          <div class="col-lg-4 col-sm-6 col-md-6">
+            <div class="single-ml-services-box">
+              <div class="image">
+                <picture>
+                  <source srcset="~assets/img/services-image/4.png.webp" type="image/webp" />
+                  <img src="~assets/img/services-image/4.png" alt="Безпека" />
+                </picture>
+              </div>
+              <h3>Безпека</h3>
+              <p>
+                Ваші особисті дані та завантажена інформація щодо нерухомості не передаються третім
+                особам. Завантажені дані про нерухомість використовуються виключно для аналізу та
+                оцінки вартості.
+              </p>
             </div>
-            <h3>Безпека</h3>
-            <p>
-              Ваші особисті дані та завантажена інформація щодо нерухомості не передаються третім
-              особам. Завантажені дані про нерухомість використовуються виключно для аналізу та
-              оцінки вартості.
-            </p>
           </div>
         </div>
-      </div>
+      </Suspense>
     </div>
 
     <div class="shape1">

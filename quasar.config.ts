@@ -124,10 +124,11 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Loading', 'Notify', 'Meta'],
+      plugins: ['Loading', 'LoadingBar', 'Notify', 'Meta'],
       config: {
         loading: {},
         notify: {},
+        loadingBar: {},
         brand: {
           primary: '#44ce6f',
           secondary: '#6084a4',
@@ -167,12 +168,6 @@ export default defineConfig((ctx) => {
         'logging',
         'render', // keep this as last one
       ],
-
-      // Prevent FOUC by inlining critical CSS
-      inlineCriticalCss: true,
-      
-      // Preload important assets
-      preloadChunks: true,
 
       // extendPackageJson (json) {},
       // extendSSRWebserverConf (esbuildConf) {},

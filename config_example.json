@@ -1,0 +1,269 @@
+// https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
+css: ['app.scss', ctx.prod ? 'prod-warning.scss' : ''],
+
+// https://github.com/quasarframework/quasar/tree/dev/extras
+extras: [],
+
+// Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
+build: {
+target: {
+browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
+node: 'node20',
+},
+
+vueRouterMode: 'history', // available values: 'hash', 'history'
+
+analyze: true,
+
+env: {
+VITE_APP_BASE_URL: 'https://r.akwad.sa',
+},
+polyfillModulePreload: false,
+
+extendViteConf(viteConf) {
+viteConf.resolve = mergeConfig(viteConf.resolve!, {
+alias: {
+'@': '/src',
+},
+});
+
+viteConf.build = {
+...viteConf.build,
+chunkSizeWarningLimit: 2000,
+minify: 'terser',
+terserOptions: {
+compress: {
+drop_console: true,
+drop_debugger: true,
+pure_funcs: ['console.log'],
+passes: 2,
+dead_code: true,
+loops: true,
+unused: true,
+sequences: true,
+properties: true,
+conditionals: true,
+comparisons: true,
+evaluate: true,
+booleans: true,
+typeofs: true,
+if_return: true,
+inline: true,
+},
+format: {
+comments: false,
+},
+mangle: {
+safari10: true,
+},
+sourceMap: {
+filename: 'sourcemap',
+url: 'sourcemap',
+},
+},
+assetsInlineLimit: 0,
+cssCodeSplit: true,
+sourcemap: 'inline',
+reportCompressedSize: false,
+cssTarget: 'chrome61',
+cssMinify: 'lightningcss',
+rollupOptions: {
+...(viteConf.build?.rollupOptions || {}),
+treeshake: 'recommended',
+output: {
+...(viteConf.build?.rollupOptions?.output || {}),
+manualChunks(id) {
+if (id.includes('node_modules')) {
+return id.toString().split('node_modules/')[1].split('/')[0].toString();
+}
+},
+compact: true,
+sourcemapExcludeSources: true,
+},
+},
+};
+
+viteConf.server = {
+...viteConf.server,
+hmr: {
+overlay: true,
+},
+watch: {
+usePolling: true,
+},
+open: true,
+warmup: {
+clientFiles: ['src/main.ts', 'src/App.vue'],
+}
+};
+
+viteConf.optimizeDeps = {
+...viteConf.optimizeDeps,
+include: [
+'vue-router',
+'pinia',
+'@quasar/extras',
+'quasar/lang/ar',
+'quasar',
+],
+exclude: ['@quasar/ssr-helpers'],
+};
+
+// viteConf.ssr = {
+//   ...viteConf.ssr,
+//   noExternal: ['quasar'],
+//   target: 'node'
+// };
+
+// viteConf.ssr.optimizeDeps = {
+//   ...viteConf.ssr?.optimizeDeps,
+//   include: [
+//     'vue',
+//     'vue-router',
+//     'pinia',
+//     '@quasar/extras',
+//     'quasar/lang/ar',
+//   ],
+//   exclude: ['@quasar/ssr-helpers'],
+// };
+},
+
+vitePlugins: [
+[
+'vite-plugin-checker',
+{
+vueTsc: {
+tsconfigPath: 'tsconfig.vue-tsc.json',
+},
+eslint: {
+lintCommand: 'eslint "./**/*.{js,ts,mjs,cjs,vue}"',
+},
+},
+{ server: false },
+],
+// Gzip compression (as fallback for browsers without Brotli support)
+[
+'vite-plugin-compression',
+{
+algorithm: 'gzip',
+ext: '.gz',
+filter: /\.(js|css|html|svg|json)$/,
+threshold: 10240,
+deleteOriginFile: false,
+compressionOptions: { level: 9 }, // Maximum compression
+},
+],
+],
+
+cssTarget: ['chrome61', 'firefox60', 'safari11', 'edge18'],
+
+// Add SSR specific configuration
+ssr: {
+// SSR specific configuration
+pwa: false,
+prodPort: 3000,
+middlewares: ['render'],
+
+// Changed manifest configuration
+ssrManifest: true,
+outDir: 'dist',
+manifest: true,
+noExternal: ['@vue', '@vueuse', 'vue-router', 'pinia'],
+},
+},
+
+
+// Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
+devServer: {
+open: true, // opens browser window automatically
+},
+
+// https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
+framework: {
+config: {},
+
+// iconSet: 'material-icons', // Quasar icon set
+lang: 'ar', // Quasar language pack
+
+// For special cases outside of where the auto-import strategy can have an impact
+// (like functional components as one of the examples),
+// you can manually specify Quasar components/directives to be available everywhere:
+//
+components: [],
+// components: [
+//   'QBtn',
+//   'QForm',
+//   'QInput',
+//   'QImg',
+// ],
+directives: [],
+
+// Quasar plugins
+plugins: [
+'Loading',
+'Notify',
+'Dialog',
+'Meta',
+'LocalStorage',
+'SessionStorage',
+'Cookies',
+],
+},
+
+// https://v2.quasar.dev/options/animations
+animations: [],
+
+// https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
+ssr: {
+prodPort: 4200,
+middlewares: ['pdf', 'render'],
+preload: true,
+manualStoreSerialization: true,
+manualStoreHydration: true,
+pwa: false,
+distDir: 'dist',
+protocol: {
+http2: true,
+https: true,
+},
+maxAge: 1000 * 60 * 60 * 24 * 30,
+},
+
+// https://v2.quasar.dev/quasar-cli-vite/developing-pwa/configuring-pwa
+pwa: {
+workboxMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
+},
+
+// Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-cordova-apps/configuring-cordova
+cordova: {
+// noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
+},
+
+// Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-capacitor-apps/configuring-capacitor
+capacitor: {
+hideSplashscreen: true,
+},
+
+// Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-electron-apps/configuring-electron
+electron: {
+// extendElectronMainConf (esbuildConf) {},
+// extendElectronPreloadConf (esbuildConf) {},
+
+// extendPackageJson (json) {},
+
+// Electron preload scripts (if any) from /src-electron, WITHOUT file extension
+preloadScripts: ['electron-preload'],
+
+// specify the debugging port to use for the Electron app when running in development mode
+inspectPort: 5858,
+
+bundler: 'packager', // 'packager' or 'builder'
+
+packager: {},
+
+builder: {
+// https://www.electron.build/configuration/configuration
+
+appId: 'akwad-ui',
+},
+},
