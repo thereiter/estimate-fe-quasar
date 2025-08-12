@@ -1,54 +1,48 @@
 <template>
   <div class="faq-area ptb-80">
     <div class="container">
-      <div class="faq-accordion">
-        <ul class="accordion">
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus /> Чим ваш сервіс може бути корисним?
-            </a>
+      <div class="faq-accordion row-fix">
+        <q-list bordered>
+          <q-expansion-item expand-separator icon="add" label="Чим ваш сервіс може бути корисним?">
+            <q-item-section>
+              <q-list bordered>
+                <q-item class="row-fix inline-block">
+                  <b>Швидкість і зручність:</b> Наш сервіс дозволяє вам оцінити вартість нерухомості
+                  в режимі онлайн, що дозволяє економити час на зустрічах з оцінювачами.
+                </q-item>
+                <q-item class="row-fix inline-block">
+                  <b>Об'єктивність:</b> Наш сервіс базується на алгоритмах, які використовують
+                  велику кількість даних, що забезпечує більш об'єктивну оцінку, ніж може дати
+                  окремий експерт.
+                </q-item>
+                <q-item class="row-fix inline-block">
+                  <b>Доступність:</b> Онлайн-сервіс доступний 24/7, тому ви можете отримати оцінку в
+                  будь-який зручний для вас час.
+                </q-item>
+                <q-item class="row-fix inline-block">
+                  <b>Інформованість:</b> Наш сервіс надає додаткову інформацію про ринок
+                  нерухомості: пошук схожих оголошень в інтернеті та оцінка вирогідності продажу за
+                  часом. Це дозволяє вам зрозуміти, як формується вартість вашої нерухомості.
+                </q-item>
+              </q-list>
+            </q-item-section>
+          </q-expansion-item>
 
-            <ul class="accordion-content p-2">
-              <li>
-                <b>Швидкість і зручність:</b> Наш сервіс дозволяє вам оцінити вартість нерухомості в
-                режимі онлайн, що дозволяє економити час на зустрічах з оцінювачами.
-              </li>
-              <li>
-                <b>Об'єктивність:</b> Наш сервіс базується на алгоритмах, які використовують велику
-                кількість даних, що забезпечує більш об'єктивну оцінку, ніж може дати окремий
-                експерт.
-              </li>
-              <li>
-                <b>Доступність:</b> Онлайн-сервіс доступний 24/7, тому ви можете отримати оцінку в
-                будь-який зручний для вас час.
-              </li>
-              <li>
-                <b>Інформованість:</b> Наш сервіс надає додаткову інформацію про ринок нерухомості:
-                пошук схожих оголошень в інтернеті та оцінка вирогідності продажу за часом. Це
-                дозволяє вам зрозуміти, як формується вартість вашої нерухомості.
-              </li>
-            </ul>
-          </li>
-
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Як отримати результат оцінки?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item expand-separator icon="add" label="Як отримати результат оцінки?">
+            <div class="p-3">
               Після оформлення замовлення ви отримаєте результат за декілька хвилин в особистому
               кабінеті. Також результат оцінки відправляється на електронну пошту, яку ви вказали
               при оформленні. Рекомендуємо переглядати результат оцінки в особистому кабінеті, тому
               що там ви можете отримати додаткову інформацію щодо вашої оцінки.
             </div>
-          </li>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Як відновити доступ до особистого кабінету?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item
+            icon="add"
+            expand-separator
+            label="Як відновити доступ до особистого кабінету?"
+          >
+            <div class="p-3">
               Доступ до особистого кабінету можна відновити за допомогою
               <router-link :to="{ name: 'auth' }"><b>форми відновлення паролю</b></router-link
               >.<br />
@@ -60,32 +54,29 @@
               Це запорука того, що ви зможете отримати результат оцінки та мати доступ до них у
               майбутньому.
             </div>
-          </li>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Як виглядає зразок результатів оцінки?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item
+            icon="add"
+            expand-separator
+            label="Як виглядає зразок результатів оцінки?"
+          >
+            <div class="p-3">
               Зразок результатів можно переглянути
               <router-link :to="{ name: 'manual' }"><b>тут</b></router-link
               >.
             </div>
-          </li>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus /> Наскільки точні результати оцінки?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item icon="add" expand-separator label="Наскільки точні результати оцінки?">
+            <div class="p-3">
               Якість оцінки залежить від кількості доступної інформації в районі розташування
               нерухомості, яку ви хочете оцінити.<br />
               На етапі вибору місцезнаходження ви зможете заздалегідь дізнатися наскільки достовірна
               буде оцінка та чи можлива оцінка взагалі. <br />
               <picture>
                 <img
-                  src="/manual/images/2.jpg"
+                  src="~assets/pages/manual/2.jpg"
                   alt="Перевірка якості оцінки нерухомості за місцезнаходженням"
                 />
                 <br />
@@ -93,22 +84,18 @@
               Ми цінуємо ваш час та свою репутацію. Якщо якість оцінки буде посередньою або оцінка
               буде взагалі неможлива, ми вам одразу про це повідомимо. <br />
             </div>
-          </li>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Скільки коштує оцінка?
-            </a>
-            <div class="accordion-content p-2">Безкоштовно.</div>
-          </li>
+          <q-expansion-item icon="add" expand-separator label="Скільки коштує оцінка?">
+            <div class="p-3">Безкоштовно.</div>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Чи не потрапляють мої особисті дані до третіх осіб?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item
+            expand-separator
+            icon="add"
+            label="Чи не потрапляють мої особисті дані до третіх осіб?"
+          >
+            <div class="p-3">
               Наш сервіс ніколи не передає ваші персональні дані третім особам.<br />
               —
               <router-link :to="{ name: 'terms-and-conditions' }"
@@ -120,14 +107,14 @@
                 ><b>Політика конфіденційності</b></router-link
               >
             </div>
-          </li>
+          </q-expansion-item>
 
-          <li class="accordion-item">
-            <a class="accordion-title" href="javascript:void(0)">
-              <Plus />
-              Чи не потрапляють дані про нерухомість до третіх осіб?
-            </a>
-            <div class="accordion-content p-2">
+          <q-expansion-item
+            icon="add"
+            expand-separator
+            label="Чи не потрапляють дані про нерухомість до третіх осіб?"
+          >
+            <div class="p-3">
               Наш сервіс ніколи не передає дані про нерухомість третім особам.<br />
               —
               <router-link :to="{ name: 'terms-and-conditions' }"
@@ -139,10 +126,10 @@
                 ><b>Політика конфіденційності</b></router-link
               >
             </div>
-          </li>
-        </ul>
+          </q-expansion-item>
+        </q-list>
         <div class="col-12 text-center mt-5">
-          <a href="/estimate/checkout/" class="btn btn-primary">
+          <router-link :to="{ name: 'estimate' }" class="btn btn-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -159,12 +146,12 @@
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
             Перейти до оцінки
-          </a>
+          </router-link>
         </div>
         <div class="row">
           <div class="col-12 text-center mt-5">
             <h3>
-              <a href="#" onclick="HelpCrunch('openChat'); return false;" class="btn btn-primary">
+              <a href="#" class="btn btn-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -193,17 +180,14 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { useMeta } from 'quasar';
-import { Plus } from 'lucide-vue-next';
+import { useMeta, QExpansionItem, QList } from 'quasar';
 
 export default defineComponent({
   name: 'Faq',
-  components: {
-    Plus,
-  },
+  components: { QList, QExpansionItem },
   setup() {
     const metaData = {
-      title: 'ПЧасті питання FAQ сервіса онлайн оцінки нерухомості — Estimate Real Estate',
+      title: 'Часті питання FAQ сервіса онлайн оцінки нерухомості — Estimate Real Estate',
       meta: {
         description: {
           name: 'description',
@@ -220,3 +204,19 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+.faq-accordion .row-fix,
+.faq-accordion .row-fix > * {
+  width: auto;
+}
+.faq-accordion .q-item__section--avatar .q-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  text-align: center;
+  height: 100%;
+  background: #44ce6f;
+  color: #ffffff;
+}
+</style>

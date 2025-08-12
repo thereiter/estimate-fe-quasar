@@ -64,7 +64,7 @@
         <p>4.4. Замовник зобов'язується:</p>
         <p>
           4.4.1. Оплатити Послуги Виконавця відповідно до встановлених
-          <a href="/price/" target="_blank">тарифів</a>.
+          <router-link :to="{ name: 'price' }">тарифів</router-link>.
         </p>
         <p>4.4.2. Не передавати свій аккаунт та доступ до Послуг третім особам.</p>
         <p>
@@ -145,7 +145,8 @@
         <p>
           10.3. Виконавець має право передавати персональні дані Замовника третім особам тільки з
           попередньою згодою Замовника, або якщо передача таких даних є вимогою законодавства
-          України. <a href="/privacy-policy/" target="_blank">Політика конфіденційності</a>.
+          України.
+          <router-link :to="{ name: 'privacy-policy' }">Політика конфіденційності</router-link>.
         </p>
 
         <h2>11. Використання Cookie</h2>
@@ -184,7 +185,7 @@
         </p>
         <p>
           12.3. Результати оцінки також доступні для Замовника в
-          <a href="/estimate/personal/" target="_blank">особистому кабінеті</a>, доступ до якого
+          <router-link :to="{ name: 'personal' }">особистому кабінеті</router-link>, доступ до якого
           забезпечується виключно за допомогою робочої електронної адреси Замовника.
         </p>
         <p>
@@ -210,7 +211,7 @@
         <p>E-mail: support@estimate.realestate</p>
         <p>
           Онлайн-чат з нашим консультантом:
-          <a href="javascript:void(0)" onclick="HelpCrunch('openChat'); return false;">написати</a>
+          <a href="javascript:void(0)">написати</a>
         </p>
       </div>
     </div>
@@ -219,12 +220,26 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { ref } from 'vue';
-import { useQuasar } from 'quasar';
-import { useTemplateGlobals } from 'stores/template-globals';
+import { useMeta } from 'quasar';
 
 export default defineComponent({
   name: 'TermsAndConditions',
-  setup() {},
+  setup() {
+    const metaData = {
+      title: 'Публічна оферта, умови користування сервісом - Estimate Real Estate',
+      meta: {
+        description: {
+          name: 'description',
+          content: 'Публічна оферта — умови користування сервісом',
+        },
+        keywords: {
+          name: 'keywords',
+          content: 'Публічна оферта — умови користування сервісом',
+        },
+        robots: { name: 'robots', content: 'noindex, nofollow' },
+      },
+    };
+    useMeta(metaData);
+  },
 });
 </script>

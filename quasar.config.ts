@@ -17,7 +17,7 @@ export default defineConfig((ctx) => {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: [
       'app.scss',
-      'template/bootstrap.min.css',
+      'template/bootstrap-fixed.min.css',
       'template/animate.min.css',
       'template/style.scss',
       'template/responsive.css',
@@ -167,6 +167,12 @@ export default defineConfig((ctx) => {
         'logging',
         'render', // keep this as last one
       ],
+
+      // Prevent FOUC by inlining critical CSS
+      inlineCriticalCss: true,
+      
+      // Preload important assets
+      preloadChunks: true,
 
       // extendPackageJson (json) {},
       // extendSSRWebserverConf (esbuildConf) {},

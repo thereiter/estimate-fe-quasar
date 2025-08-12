@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, nextTick } from 'vue';
 
 export default defineComponent({
   name: 'App',
@@ -9,6 +9,24 @@ export default defineComponent({
     // const apiBaseUrl = `api/index`;
     // const token = ref(null);
     //
+    // Handle app hydration and prevent FOUC
+    onMounted(async () => {
+      // Wait for next tick to ensure DOM is fully rendered
+      await nextTick();
+      
+      // Hide loading skeleton after hydration
+      const skeleton = document.getElementById('app-skeleton');
+      if (skeleton) {
+        skeleton.classList.add('loaded');
+        setTimeout(() => {
+          skeleton.style.display = 'none';
+        }, 300);
+      }
+      
+      // Ensure smooth transition by removing any remaining loading states
+      document.body.classList.add('app-hydrated');
+    });
+    
     // watch(
     //   () => appStore.isLoading,
     //   (newState) => {
