@@ -35,15 +35,15 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     linkActiveClass: 'active',
   });
 
-  Router.beforeEach((to, from, next) => {
-    LoadingBar.start();
-    next();
-  });
-
-  Router.afterEach(() => {
-    console.log('Router.afterEach');
-    LoadingBar.stop();
-  });
+  // Router.beforeEach((to, from, next) => {
+  //   LoadingBar.start();
+  //   next();
+  // });
+  //
+  // Router.afterEach(() => {
+  //   console.log('Router.afterEach');
+  //   LoadingBar.stop();
+  // });
 
   return Router;
 });

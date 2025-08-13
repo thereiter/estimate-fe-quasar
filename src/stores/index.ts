@@ -1,6 +1,8 @@
 import { defineStore } from '#q-app/wrappers';
 import { createPinia } from 'pinia';
-
+import { inject, markRaw } from 'vue';
+import { apiKey } from 'boot/axios';
+import { AxiosInstance } from 'axios';
 /*
  * When adding new properties to stores, you should also
  * extend the `PiniaCustomProperties` interface.
@@ -9,7 +11,7 @@ import { createPinia } from 'pinia';
 declare module 'pinia' {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   export interface PiniaCustomProperties {
-    // add your custom properties here, if any
+    api: () => AxiosInstance;
   }
 }
 
@@ -22,11 +24,17 @@ declare module 'pinia' {
  * with the Store instance.
  */
 
-export default defineStore((/* { ssrContext } */) => {
+export default defineStore(() => {
   const pinia = createPinia();
 
-  // You can add Pinia plugins here
-  // pinia.use(SomePiniaPlugin)
+  pinia.use(({ store }) => {
+    store.api = () => {
+      return inject(apiKey);
+    };
+    if (process.env.NODE_ENV === 'development') {
+      store._customProperties.add('api');
+    }
+  });
 
   return pinia;
 });

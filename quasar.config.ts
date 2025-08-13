@@ -12,12 +12,12 @@ export default defineConfig((ctx) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['sentry', 'i18n', 'axios', 'mock-api', 'template-globals', 'auth'],
+    boot: ['sentry', 'i18n', 'axios', 'template-globals', 'auth'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: [
       'app.scss',
-      'template/bootstrap-fixed.min.css',
+      'template/bootstrap.min.css',
       'template/animate.min.css',
       'template/style.scss',
       'template/responsive.css',
@@ -124,7 +124,7 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Loading', 'LoadingBar', 'Notify', 'Meta'],
+      plugins: ['Loading', 'LoadingBar', 'Notify', 'Meta', 'Cookies'],
       config: {
         loading: {},
         notify: {},

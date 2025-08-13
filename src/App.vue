@@ -1,5 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from 'stores/auth';
 
 export default defineComponent({
   name: 'App',
@@ -157,14 +159,16 @@ export default defineComponent({
     // const router = useRouter();
     //
     // router.beforeEach((to, from, next) => {
-    //   appStore.isLoading = true;
+    //   const authState = useAuthStore();
+    //   console.log(authState);
     //   next();
     // });
     //
     // router.afterEach(() => {
-    //   appStore.isLoading = false;
+    //   const authState = useAuthStore();
+    //   console.log(authState);
     // });
-
+    const authState = useAuthStore();
     return {};
   },
 });
