@@ -109,6 +109,12 @@ export default defineConfig((ctx) => {
       open: false, // opens browser window automatically,
       typescript: false,
       vueDevtools: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8100',
+          changeOrigin: true,
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework

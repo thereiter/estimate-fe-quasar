@@ -81,7 +81,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
                       >
                         <User />
                         <span class="header-personal-link-text link-text header-login">
-                          {{ authStore.login }}
+                          {{ authStore.email }}
                         </span>
                       </router-link>
                     </div>
@@ -149,7 +149,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
               >
                 <User />
                 <span class="header-personal-link-text header-login">
-                  {{ authStore.login }}
+                  {{ authStore.email }}
                 </span>
               </router-link>
             </div>

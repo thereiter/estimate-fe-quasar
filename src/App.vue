@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
 import { useAuthStore } from 'stores/auth';
 
 export default defineComponent({
@@ -168,8 +167,14 @@ export default defineComponent({
     //   const authState = useAuthStore();
     //   console.log(authState);
     // });
-    const authState = useAuthStore();
+
     return {};
+  },
+  preFetch: async ({ store }) => {
+    const authState = useAuthStore(store);
+    await authState.getCsrf();
+    //await authState.login();
+    //await authState.loadAuthState();
   },
 });
 </script>

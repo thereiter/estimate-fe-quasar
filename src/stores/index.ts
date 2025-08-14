@@ -1,6 +1,6 @@
 import { defineStore } from '#q-app/wrappers';
 import { createPinia } from 'pinia';
-import { inject, markRaw } from 'vue';
+import { inject } from 'vue';
 import { apiKey } from 'boot/axios';
 import { AxiosInstance } from 'axios';
 /*
@@ -11,7 +11,7 @@ import { AxiosInstance } from 'axios';
 declare module 'pinia' {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   export interface PiniaCustomProperties {
-    api: () => AxiosInstance;
+    api: AxiosInstance;
   }
 }
 
@@ -27,10 +27,11 @@ declare module 'pinia' {
 export default defineStore(() => {
   const pinia = createPinia();
 
-  pinia.use(({ store }) => {
-    store.api = () => {
+  pinia.use(({ app, store }) => {
+    store.api = app.runWithContext(() => {
       return inject(apiKey);
-    };
+    });
+
     if (process.env.NODE_ENV === 'development') {
       store._customProperties.add('api');
     }
