@@ -279,7 +279,7 @@ export default defineComponent({
   padding: 0 !important;
 }
 .faq-accordion .q-item__section--avatar {
-  z-index: 9999;
+  z-index: 1;
   position: absolute;
   height: 100%;
   padding: 0;
