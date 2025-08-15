@@ -1,5 +1,5 @@
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <div class="ml-services-area ptb-80">
       <div class="container">
         <Suspense>
@@ -147,56 +147,63 @@
             <img
               src="~assets/img/services-left-image/big-monitor.png"
               class="wow fadeInDown"
-              data-wow-delay="0.6s"
+              data-aos="fade-up"
+              data-aos-offset="200"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-anchor-placement="top-center"
               alt="big-monitor"
               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInDown"
             />
             <img
               src="~assets/img/services-left-image/creative.png"
               class="wow fadeInUp"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="creative"
               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
             />
             <img
               src="~assets/img/services-left-image/developer.png"
               class="wow fadeInLeft"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="developer"
               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft"
             />
             <img
               src="~assets/img/services-left-image/flower-top.png"
               class="wow zoomIn"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="flower-top"
               style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn"
             />
             <img
               src="~assets/img/services-left-image/small-monitor.png"
               class="wow bounceIn"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="small-monitor"
               style="visibility: visible; animation-delay: 0.6s; animation-name: bounceIn"
             />
             <img
               src="~assets/img/services-left-image/small-top.png"
               class="wow fadeInDown"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="small-top"
               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInDown"
             />
             <img
               src="~assets/img/services-left-image/table.png"
               class="wow zoomIn"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="table"
               style="visibility: hidden; animation-delay: 0.6s; animation-name: none"
             />
             <img
               src="~assets/img/services-left-image/target.png"
               class="wow fadeInUp"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="target"
               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
             />
@@ -209,7 +216,7 @@
             <img
               src="~assets/img/services-left-image/main-pic.png"
               class="wow fadeInUp"
-              data-wow-delay="0.6s"
+              data-aos-delay="0.6s"
               alt="Якісно"
               style="visibility: hidden; animation-delay: 0.6s; animation-name: none"
             />
@@ -262,7 +269,7 @@
               <img
                 src="~assets/img/iot-features-image/2.png"
                 class="wow fadeInUp"
-                data-wow-delay="0.6s"
+                data-aos-delay="0.6s"
                 alt="Зручно"
                 style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
               />
@@ -382,7 +389,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { useMeta } from 'quasar';
 import { useTransition, useIntersectionObserver } from '@vueuse/core';
 import { shallowRef } from 'vue';
@@ -458,6 +465,14 @@ export default defineComponent({
         threshold: 0.3, // Trigger when 30% of the element is visible
       },
     );
+
+    onMounted(async () => {
+      if (process.env.SERVER === false) {
+        const aos = await import('@diadal/aos');
+        aos.init({});
+        AOS.refresh();
+      }
+    });
 
     return {
       counter1,

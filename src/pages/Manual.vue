@@ -1,5 +1,5 @@
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <div class="about-area ptb-80">
       <div class="container-fluid">
         <div class="row align-items-center">

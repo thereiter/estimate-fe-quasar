@@ -1,5 +1,5 @@
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
       <div>
         <div style="font-size: 30vh">404</div>

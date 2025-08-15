@@ -32,7 +32,7 @@
           </q-item-section>
         </q-item>
         <template v-for="(menuItem, index) in menuList" :key="index">
-          <q-item clickable v-ripple class="row-fix" :to="{ name: menuItem.name }">
+          <q-item clickable v-ripple class="" :to="{ name: menuItem.name }">
             <q-item-section avatar>
               <q-icon :name="menuItem.icon" />
             </q-item-section>
@@ -108,8 +108,8 @@ const menuList = [
 const drawer = ref(false);
 </script>
 <style scoped>
-.row-fix,
-.row-fix > * {
+.,
+. > * {
   width: auto;
 }
 </style>

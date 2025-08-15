@@ -36,7 +36,7 @@ const scrollHandler: QScrollObserverProps['onScroll'] = (details) => {
 </script>
 
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <header
       ref="header"
       class="header-container headroom"

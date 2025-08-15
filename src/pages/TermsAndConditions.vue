@@ -1,5 +1,5 @@
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <div class="terms-conditions-area ptb-80">
       <div class="container">
         <div class="terms-conditions-content">

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bootstrap-scope template-priority">
+  <div class="bootstrap-scope">
     <footer class="footer-area bg-f7fafd">
       <div class="container">
         <div class="row">
