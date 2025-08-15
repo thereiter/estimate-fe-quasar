@@ -16,12 +16,16 @@ export default defineConfig((ctx) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: [
+      'bootstrap-scoped.scss',
       'app.scss',
-      'template/bootstrap.min.css',
+      //'template/bootstrap-fixed.min.css',
       'template/animate.min.css',
-      'template/style.scss',
-      'template/responsive.css',
-      'template/custom.css',
+      'style-global.scss',
+      'responsive-global.scss',
+      'custom-global.scss',
+      //'style-bootstrap-override.scss',
+      //'responsive-bootstrap-override.scss',
+      //'template/custom.css',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras

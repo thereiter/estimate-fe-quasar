@@ -25,6 +25,7 @@
     "@vuelidate/validators": "^2.0.4",
     "@vueuse/core": "^13.6.0",
     "axios": "^1.2.1",
+    "bootstrap": "^5.3.7",
     "compression": "^1.8.1",
     "cookie-es": "^2.0.0",
     "html2pdf.js": "^0.10.3",

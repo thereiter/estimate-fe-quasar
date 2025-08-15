@@ -1,9 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useAuthStore } from 'stores/auth';
-import { Cookies } from 'quasar';
-
-// you need access to `ssrContext`
 
 export default defineComponent({
   name: 'App',
@@ -173,32 +170,12 @@ export default defineComponent({
 
     return {};
   },
-  preFetch: async ({
-    store,
-    currentRoute,
-    previousRoute,
-    redirect,
-    ssrContext,
-    urlPath,
-    publicPath,
-  }) => {
-    const cookies = process.env.SERVER ? Cookies.parseSSR(ssrContext) : Cookies;
+  preFetch: async ({ store }) => {
     const authState = useAuthStore(store);
 
     if (process.env.SERVER) {
       await authState.loadAuthState();
     }
-
-    if (!cookies.get('XSRF-TOKEN')) {
-      await authState.getCsrf();
-    }
-
-    if (process.env.CLIENT) {
-      await authState.login();
-      await authState.loadAuthState();
-    }
-
-    //
   },
 });
 </script>

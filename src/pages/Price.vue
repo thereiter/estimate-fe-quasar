@@ -1,36 +1,38 @@
 <template>
-  <div class="pricing-area ptb-80 bg-f9f6f6">
-    <div class="container">
-      <div class="section-title">
-        <h2>Безкоштовно</h2>
-        <div class="bar"></div>
-        <h5>Поки триває війна з російськими загарбниками, наш сервіс працює безкоштовно.</h5>
-        <br />
-        <p>
-          <a href="https://bank.gov.ua/ua/about/support-the-armed-forces" class="btn btn-primary">
-            Перерахувати кошти на підтримку ЗСУ
-          </a>
-        </p>
-        <br />
-        <p>
-          <router-link :to="{ name: 'estimate' }" class="btn btn-secondary">
-            Оцінити нерухомість
-          </router-link>
-        </p>
+  <div class="bootstrap-scope template-priority">
+    <div class="pricing-area ptb-80 bg-f9f6f6">
+      <div class="container">
+        <div class="section-title">
+          <h2>Безкоштовно</h2>
+          <div class="bar"></div>
+          <h5>Поки триває війна з російськими загарбниками, наш сервіс працює безкоштовно.</h5>
+          <br />
+          <p>
+            <a href="https://bank.gov.ua/ua/about/support-the-armed-forces" class="btn btn-primary">
+              Перерахувати кошти на підтримку ЗСУ
+            </a>
+          </p>
+          <br />
+          <p>
+            <router-link :to="{ name: 'estimate' }" class="btn btn-primary">
+              Оцінити нерухомість
+            </router-link>
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="shape8 rotateme">
-      <img src="~assets/img/shape2.svg" alt="shape" />
-    </div>
-    <div class="shape2 rotateme">
-      <img src="~assets/img/shape2.svg" alt="shape" />
-    </div>
-    <div class="shape7">
-      <img src="~assets/img/shape4.svg" alt="shape" />
-    </div>
-    <div class="shape4">
-      <img src="~assets/img/shape4.svg" alt="shape" />
+      <div class="shape8 rotateme">
+        <img src="~assets/img/shape2.svg" alt="shape" />
+      </div>
+      <div class="shape2 rotateme">
+        <img src="~assets/img/shape2.svg" alt="shape" />
+      </div>
+      <div class="shape7">
+        <img src="~assets/img/shape4.svg" alt="shape" />
+      </div>
+      <div class="shape4">
+        <img src="~assets/img/shape4.svg" alt="shape" />
+      </div>
     </div>
   </div>
 </template>

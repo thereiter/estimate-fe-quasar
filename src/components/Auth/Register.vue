@@ -9,6 +9,7 @@
       lazy-rules
       :bottom-slots="true"
       :error="v$.email.$errors.length > 0"
+      name="email"
     >
       <template v-slot:prepend>
         <q-icon name="email" />
@@ -21,9 +22,7 @@
             </span>
           </div>
           <div v-else>
-            <span v-for="error of v$.email.$errors" :key="error.$uid">
-              {{ error.$message }};
-            </span>
+            <span v-for="error of v$.email.$errors" :key="error.$uid"> {{ error.$message }}; </span>
           </div>
           <q-btn
             v-if="showSwitchToLoginHref"
@@ -50,6 +49,7 @@
       :error="v$.password.$errors.length > 0"
       :bottom-slots="true"
       lazy-rules
+      name="password"
     >
       <template v-slot:prepend>
         <q-icon name="password" />
@@ -77,6 +77,7 @@
       lazy-rules
       :bottom-slots="true"
       :error="v$.passwordConfirm.$errors.length > 0"
+      name="password-confirm"
     >
       <template v-slot:prepend>
         <q-icon name="password" />
@@ -96,43 +97,41 @@
     </q-input>
 
     <div class="terms-accept-block">
-      <q-scroll-area style="height: 70px; margin-top: 10px;" :visible="true">
-        <q-field
-            dense
-            isTermsAccepted
-            :error="v$.isTermsAccepted.$errors.length > 0"
-        >
+      <q-scroll-area style="height: 70px; margin-top: 10px" :visible="true">
+        <q-field dense isTermsAccepted :error="v$.isTermsAccepted.$errors.length > 0">
           <q-checkbox
-              v-model="data.isTermsAccepted"
-              color="primary"
-              @click="v$.isTermsAccepted.$touch"
+            v-model="data.isTermsAccepted"
+            color="primary"
+            @click="v$.isTermsAccepted.$touch"
+            name="is-terms-accepted"
           >
           </q-checkbox>
           <p class="accept-terms-checkbox">
             Я погоджусь з&nbsp;
-            <a
-                :href="privacyPolicyHref"
-                target="_blank"
-                style="text-decoration: underline"
-            >політикої обробки моїх персональних даних</a>&nbsp;та погоджусь з&nbsp;
-            <a
-                :href="termsAndConditionsHref"
-                target="_blank"
-                style="text-decoration: underline"
+            <router-link
+              :to="{ name: 'privacy-policy' }"
+              target="_blank"
+              style="text-decoration: underline"
+              >політикої обробки моїх персональних даних</router-link
+            >&nbsp;та погоджусь з&nbsp;
+            <router-link
+              :to="{ name: 'terms-and-conditions' }"
+              target="_blank"
+              style="text-decoration: underline"
             >
               умовами користування сервісом
-            </a>
+            </router-link>
           </p>
           <template v-slot:error>
             <div v-if="v$.isTermsAccepted.$errors.length === 1">
-          <span>
-            {{ v$.isTermsAccepted.$errors[0].$message }}
-          </span>
+              <span>
+                {{ v$.isTermsAccepted.$errors[0].$message }}
+              </span>
             </div>
             <div v-else>
-          <span v-for="error of v$.isTermsAccepted.$errors" :key="error.$uid">
-            {{ error.$message }};
-          </span>
+              <span v-for="error of v$.isTermsAccepted.$errors" :key="error.$uid">
+                {{ error.$message }};
+              </span>
             </div>
           </template>
         </q-field>
@@ -155,53 +154,37 @@
         />
       </div>
       <div>
-        <SocServButtons
-          :facebook-link="facebookSocServLink"
-          :google-link="googleSocServLink"
-          :errors="errorsSocServ"
-        ></SocServButtons>
+        <!--        <SocServButtons-->
+        <!--          :facebook-link="facebookSocServLink"-->
+        <!--          :google-link="googleSocServLink"-->
+        <!--          :errors="errorsSocServ"-->
+        <!--        ></SocServButtons>-->
       </div>
     </div>
   </q-form>
 </template>
 
 <script>
-import { ref, reactive, computed, inject } from "vue";
-import { useVuelidate } from "@vuelidate/core";
-import { useI18n } from "vue-i18n";
+import { ref, reactive, computed, inject } from 'vue';
+import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 import {
   email as emailOrig,
   required as requiredOrig,
   sameAs as sameAsOrig,
   minLength as minLengthOrig,
-} from "@vuelidate/validators";
-import { createI18nMessage } from "@vuelidate/validators";
-import SocServButtons from "components/Auth/SocServButtons.vue";
+} from '@vuelidate/validators';
+import { createI18nMessage } from '@vuelidate/validators';
+import SocServButtons from 'components/Auth/SocServButtons.vue';
 
 export default {
-  name: "Register",
-  props: {
-    api: {
-      required: true,
-      type: Object,
-    },
-    googleSocServLink: {
-      type: String,
-    },
-    facebookSocServLink: {
-      type: String,
-    },
-    errorsSocServ: {
-      type: Array,
-    },
-  },
-  components: { SocServButtons },
-  emits: ["register-result", "switch-to-login"],
+  name: 'Register',
+  props: {},
+  components: {},
+  emits: ['register-result', 'switch-to-login'],
   setup(props, context) {
     const { t } = useI18n({});
     const withI18nMessage = createI18nMessage({ t });
-    const termsAndConditionsHref = inject("termsAndConditionsHref");
-    const privacyPolicyHref = inject("privacyPolicyHref");
     const isLoading = ref(false);
     const isSuccess = ref(null);
     const isAuthorized = ref(null);
@@ -237,73 +220,73 @@ export default {
     const isPureObject = function (input) {
       return (
         null !== input &&
-        typeof input === "object" &&
+        typeof input === 'object' &&
         Object.getPrototypeOf(input).isPrototypeOf(Object)
       );
     };
 
     const showSwitchToLoginHref = ref(false);
     const sendRequest = async () => {
-      v$.value.$clearExternalResults();
-      showSwitchToLoginHref.value = false;
-      errors.value = [];
-      const result = await v$.value.$validate();
-      if (!result) return;
-
-      isLoading.value = true;
-      props.api
-        .post(
-          {
-            action: "register",
-            inputs: data,
-          },
-          "auth",
-          true
-        )
-        .then(function (response) {
-          let fieldErrors = response.data.fieldErrors;
-
-          if (
-            isPureObject(fieldErrors) &&
-            fieldErrors.hasOwnProperty("email") &&
-            Array.isArray(fieldErrors.email)
-          ) {
-            //todo: fix this
-            let emailExistsErrorIndex = fieldErrors.email.findIndex((error) =>
-              error.includes("Такий E-mail вже зарєестрован на сайті")
-            );
-            if (emailExistsErrorIndex !== -1) {
-              showSwitchToLoginHref.value = true;
-            }
-          }
-
-          $externalResults.value = fieldErrors;
-
-          errors.value = response.data.errors;
-
-          isSuccess.value = response.data.isSuccess;
-          isAuthorized.value = response.data.isAuthorized;
-          userId.value = response.data.userId;
-          login.value = response.data.login;
-
-          context.emit("register-result", {
-            isSuccess: isSuccess.value,
-            isAuthorized: isAuthorized.value,
-            userId: userId.value,
-            login: login.value,
-          });
-        })
-        .catch((e) => {
-          console.error(e);
-          throw e;
-        })
-        .finally(() => {
-          isLoading.value = false;
-        });
+      // v$.value.$clearExternalResults();
+      // showSwitchToLoginHref.value = false;
+      // errors.value = [];
+      // const result = await v$.value.$validate();
+      // if (!result) return;
+      //
+      // isLoading.value = true;
+      // props.api
+      //   .post(
+      //     {
+      //       action: "register",
+      //       inputs: data,
+      //     },
+      //     "auth",
+      //     true
+      //   )
+      //   .then(function (response) {
+      //     let fieldErrors = response.data.fieldErrors;
+      //
+      //     if (
+      //       isPureObject(fieldErrors) &&
+      //       fieldErrors.hasOwnProperty("email") &&
+      //       Array.isArray(fieldErrors.email)
+      //     ) {
+      //       //todo: fix this
+      //       let emailExistsErrorIndex = fieldErrors.email.findIndex((error) =>
+      //         error.includes("Такий E-mail вже зарєестрован на сайті")
+      //       );
+      //       if (emailExistsErrorIndex !== -1) {
+      //         showSwitchToLoginHref.value = true;
+      //       }
+      //     }
+      //
+      //     $externalResults.value = fieldErrors;
+      //
+      //     errors.value = response.data.errors;
+      //
+      //     isSuccess.value = response.data.isSuccess;
+      //     isAuthorized.value = response.data.isAuthorized;
+      //     userId.value = response.data.userId;
+      //     login.value = response.data.login;
+      //
+      //     context.emit("register-result", {
+      //       isSuccess: isSuccess.value,
+      //       isAuthorized: isAuthorized.value,
+      //       userId: userId.value,
+      //       login: login.value,
+      //     });
+      //   })
+      //   .catch((e) => {
+      //     console.error(e);
+      //     throw e;
+      //   })
+      //   .finally(() => {
+      //     isLoading.value = false;
+      //   });
     };
 
     const switchToLogin = () => {
-      context.emit("switch-to-login");
+      context.emit('switch-to-login');
     };
 
     return {
@@ -311,8 +294,6 @@ export default {
       errors,
       data,
       sendRequest,
-      termsAndConditionsHref,
-      privacyPolicyHref,
       v$,
       showSwitchToLoginHref,
       switchToLogin,
@@ -327,42 +308,42 @@ export default {
   display: flex !important;
   flex-wrap: wrap;
   align-items: center !important;
-  font-size:12px !important;
+  font-size: 12px !important;
 }
 .accept-terms-checkbox a {
   color: $secondary !important;
 }
-.register-button-block{
+.register-button-block {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: flex-start;
 }
-.register-button-block .register{
-  margin-right: 1.5rem!important;
+.register-button-block .register {
+  margin-right: 1.5rem !important;
 }
 
 @media (max-width: 520px) {
-  .register-button-block{
+  .register-button-block {
     flex-direction: column;
     justify-content: space-around;
     align-content: space-around;
   }
 
-  .register-button-block .register{
+  .register-button-block .register {
     margin-right: 0 !important;
   }
 
-  .register-button-block .main-block{
+  .register-button-block .main-block {
     margin-bottom: 20px;
   }
-  .mw-250.main-block{
-    margin-top:20px;
+  .mw-250.main-block {
+    margin-top: 20px;
   }
 }
 </style>
 <style>
-.terms-accept-block .q-field__control-container{
+.terms-accept-block .q-field__control-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -371,11 +352,11 @@ export default {
 }
 
 @media (max-width: 820px) {
-  .terms-accept-block .q-field__control-container{
+  .terms-accept-block .q-field__control-container {
     align-items: flex-start !important;
   }
-  .terms-accept-block .q-checkbox{
-    height:23px !important;
+  .terms-accept-block .q-checkbox {
+    height: 23px !important;
   }
 }
 

@@ -1,0 +1,9 @@
+/* Template Style Wrapper - Higher Specificity than Bootstrap
+ * This file wraps all template styles to ensure they override Bootstrap
+ * Specificity: body .bootstrap-scope (0,0,2,1) > .bootstrap-scope (0,0,1,0)
+ */
+
+.bootstrap-scope.template-priority {
+  // Import all template styles within this maximum specificity scope
+  @import './template/style.scss';
+}

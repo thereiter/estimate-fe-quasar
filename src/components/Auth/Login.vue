@@ -1,7 +1,7 @@
 <template>
   <transition name="slide-fade" mode="out-in">
     <div v-if="showForgotPassword" key="forgot-password-form">
-      <ForgotPassword v-bind:api="apiProp">
+      <ForgotPassword>
         <template v-slot:back-button>
           <q-btn
             @forgot-password-result="$emit('forgot-password-result', $event)"
@@ -26,6 +26,7 @@
           lazy-rules
           :bottom-slots="true"
           :error="v$.email.$errors.length > 0"
+          name="email"
         >
           <template v-slot:prepend>
             <q-icon name="email" />
@@ -54,6 +55,7 @@
           :hint="$t('authLoginWorkingPasswordHint')"
           :bottom-slots="true"
           lazy-rules
+          name="new-password"
         >
           <template v-slot:prepend>
             <q-icon name="password" />
@@ -79,32 +81,32 @@
             </p>
           </div>
           <div class="row login-button-block">
-              <div class="login-forgot-button-block">
-                <div class="self-center">
-                  <q-btn
-                    :label="$t('authLoginLoginButtonLabel')"
-                    :loading="isLoading"
-                    type="submit"
-                    color="primary min-width-125"
-                  />
-                </div>
-                <div>
-                  <q-btn
-                      @click="showForgotPassword = true"
-                      size="10px"
-                      class="float-right q-mt-sm vertical-bottom min-width-125"
-                      flat
-                      color="primary"
-                      :label="$t('authLoginForgotPasswordButtonLabel')"
-                  />
-                </div>
+            <div class="login-forgot-button-block">
+              <div class="self-center">
+                <q-btn
+                  :label="$t('authLoginLoginButtonLabel')"
+                  :loading="isLoading"
+                  type="submit"
+                  color="primary min-width-125"
+                />
               </div>
+              <div>
+                <q-btn
+                  @click="showForgotPassword = true"
+                  size="10px"
+                  class="float-right q-mt-sm vertical-bottom min-width-125"
+                  flat
+                  color="primary"
+                  :label="$t('authLoginForgotPasswordButtonLabel')"
+                />
+              </div>
+            </div>
             <div>
-              <SocServButtons
-                :facebook-link="facebookSocServLink"
-                :google-link="googleSocServLink"
-                :errors="errorsSocServ"
-              ></SocServButtons>
+              <!--              <SocServButtons-->
+              <!--                :facebook-link="facebookSocServLink"-->
+              <!--                :google-link="googleSocServLink"-->
+              <!--                :errors="errorsSocServ"-->
+              <!--              ></SocServButtons>-->
             </div>
           </div>
         </div>
@@ -114,38 +116,19 @@
 </template>
 
 <script>
-import { ref, reactive, computed, unref } from "vue";
-import { useVuelidate } from "@vuelidate/core";
-import { useI18n } from "vue-i18n";
-import {
-  email as emailOrig,
-  required as requiredOrig,
-} from "@vuelidate/validators";
-import { createI18nMessage } from "@vuelidate/validators";
-import ForgotPassword from "components/Auth/ForgotPassword.vue";
-import SocServButtons from "components/Auth/SocServButtons.vue";
+import { ref, reactive, computed, unref } from 'vue';
+import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
+import { email as emailOrig, required as requiredOrig } from '@vuelidate/validators';
+import { createI18nMessage } from '@vuelidate/validators';
+import ForgotPassword from 'components/Auth/ForgotPassword.vue';
+import SocServButtons from 'components/Auth/SocServButtons.vue';
 
 export default {
-  name: "Login",
-  props: {
-    api: {
-      required: true,
-      type: Object,
-    },
-    googleSocServLink: {
-      type: String,
-    },
-    facebookSocServLink: {
-      type: String,
-    },
-    errorsSocServ: {
-      type: Array,
-    },
-  },
-  emits: ["login-result"],
+  name: 'Login',
+  emits: ['login-result'],
   components: {
     ForgotPassword,
-    SocServButtons,
   },
   setup(props, context) {
     const { t } = useI18n({});
@@ -180,56 +163,53 @@ export default {
     });
 
     const sendRequest = async () => {
-      v$.value.$clearExternalResults();
-      errors.value = [];
-      const result = await v$.value.$validate();
-      if (!result) return;
-
-      isLoading.value = true;
-      props.api
-        .post(
-          {
-            action: "login",
-            inputs: data,
-          },
-          "auth",
-          true
-        )
-        .then(function (response) {
-          $externalResults.value = response.data.fieldErrors;
-          errors.value = response.data.errors;
-
-          isSuccess.value = response.data.isSuccess;
-          isAuthorized.value = response.data.isAuthorized;
-          userId.value = response.data.userId;
-          login.value = response.data.login;
-
-          context.emit("login-result", {
-            isSuccess: isSuccess.value,
-            isAuthorized: isAuthorized.value,
-            userId: userId.value,
-            login: login.value,
-          });
-        })
-        .catch((e) => {
-          console.error(e);
-          window.location.reload();
-        })
-        .finally(() => {
-          isLoading.value = false;
-        });
+      // v$.value.$clearExternalResults();
+      // errors.value = [];
+      // const result = await v$.value.$validate();
+      // if (!result) return;
+      //
+      // isLoading.value = true;
+      // props.api
+      //   .post(
+      //     {
+      //       action: "login",
+      //       inputs: data,
+      //     },
+      //     "auth",
+      //     true
+      //   )
+      //   .then(function (response) {
+      //     $externalResults.value = response.data.fieldErrors;
+      //     errors.value = response.data.errors;
+      //
+      //     isSuccess.value = response.data.isSuccess;
+      //     isAuthorized.value = response.data.isAuthorized;
+      //     userId.value = response.data.userId;
+      //     login.value = response.data.login;
+      //
+      //     context.emit("login-result", {
+      //       isSuccess: isSuccess.value,
+      //       isAuthorized: isAuthorized.value,
+      //       userId: userId.value,
+      //       login: login.value,
+      //     });
+      //   })
+      //   .catch((e) => {
+      //     console.error(e);
+      //     window.location.reload();
+      //   })
+      //   .finally(() => {
+      //     isLoading.value = false;
+      //   });
     };
-
-    const apiProp = unref(props.api);
 
     return {
       isLoading,
-      apiProp,
       errors,
       data,
-      sendRequest,
       v$,
       showForgotPassword,
+      sendRequest,
     };
   },
 };
@@ -257,28 +237,28 @@ export default {
 }
 </style>
 <style scoped>
-.login-button-block{
+.login-button-block {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: flex-start;
 }
-.login-forgot-button-block{
+.login-forgot-button-block {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  margin-right: 1.5rem!important;
+  margin-right: 1.5rem !important;
 }
 
 @media (max-width: 520px) {
-  .login-button-block{
+  .login-button-block {
     flex-direction: column;
     justify-content: space-around;
     align-content: space-around;
   }
 
-  .login-forgot-button-block{
+  .login-forgot-button-block {
     margin-right: 0 !important;
   }
 

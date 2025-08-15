@@ -1,0 +1,10 @@
+/* Template Responsive Wrapper - Higher Specificity than Bootstrap
+ * This file wraps all responsive styles to ensure they override Bootstrap
+ * Specificity: body .bootstrap-scope (0,0,2,1) > .bootstrap-scope (0,0,1,0)
+ */
+
+.global-priority-custom {
+  // Import all responsive styles within this maximum specificity scope
+  @import './template/custom.scss';
+}
+
