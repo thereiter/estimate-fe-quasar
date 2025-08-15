@@ -146,66 +146,35 @@
           <div class="col-lg-6 col-md-12 services-left-image">
             <img
               src="~assets/img/services-left-image/big-monitor.png"
-              class="wow fadeInDown"
-              data-aos="fade-up"
-              data-aos-offset="200"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-out"
-              data-aos-mirror="true"
-              data-aos-once="false"
-              data-aos-anchor-placement="top-center"
               alt="big-monitor"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInDown"
             />
             <img
               src="~assets/img/services-left-image/creative.png"
-              class="wow fadeInUp"
-              data-aos-delay="0.6s"
               alt="creative"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
             />
             <img
               src="~assets/img/services-left-image/developer.png"
-              class="wow fadeInLeft"
-              data-aos-delay="0.6s"
               alt="developer"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft"
             />
             <img
               src="~assets/img/services-left-image/flower-top.png"
-              class="wow zoomIn"
-              data-aos-delay="0.6s"
               alt="flower-top"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn"
             />
             <img
               src="~assets/img/services-left-image/small-monitor.png"
-              class="wow bounceIn"
-              data-aos-delay="0.6s"
               alt="small-monitor"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: bounceIn"
             />
             <img
               src="~assets/img/services-left-image/small-top.png"
-              class="wow fadeInDown"
-              data-aos-delay="0.6s"
               alt="small-top"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInDown"
             />
             <img
               src="~assets/img/services-left-image/table.png"
-              class="wow zoomIn"
-              data-aos-delay="0.6s"
               alt="table"
-              style="visibility: hidden; animation-delay: 0.6s; animation-name: none"
             />
             <img
               src="~assets/img/services-left-image/target.png"
-              class="wow fadeInUp"
-              data-aos-delay="0.6s"
               alt="target"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
             />
             <img
               src="~assets/img/services-left-image/cercle-shape.png"
@@ -215,10 +184,7 @@
 
             <img
               src="~assets/img/services-left-image/main-pic.png"
-              class="wow fadeInUp"
-              data-aos-delay="0.6s"
               alt="Якісно"
-              style="visibility: hidden; animation-delay: 0.6s; animation-name: none"
             />
           </div>
 
@@ -268,10 +234,7 @@
               <source srcset="~assets/img/iot-features-image/2.png.webp" type="image/webp" />
               <img
                 src="~assets/img/iot-features-image/2.png"
-                class="wow fadeInUp"
-                data-aos-delay="0.6s"
                 alt="Зручно"
-                style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
               />
             </picture>
           </div>
@@ -389,7 +352,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { useMeta } from 'quasar';
 import { useTransition, useIntersectionObserver } from '@vueuse/core';
 import { shallowRef } from 'vue';
@@ -466,13 +429,7 @@ export default defineComponent({
       },
     );
 
-    onMounted(async () => {
-      if (process.env.SERVER === false) {
-        const aos = await import('@diadal/aos');
-        aos.init({});
-        AOS.refresh();
-      }
-    });
+    // Counter animations are handled by useTransition and intersection observer
 
     return {
       counter1,
