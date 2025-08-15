@@ -4,6 +4,9 @@ import { type InjectionKey } from 'vue';
 import { Cookies } from 'quasar';
 import { QSsrContext } from '#q-app';
 import { type AxiosResponse, type InternalAxiosRequestConfig } from 'axios';
+//import { parse, serialize, parseSetCookie, splitSetCookieString } from 'cookie-es';
+import { type CookieOptions } from 'express';
+import { parse } from 'set-cookie-parser';
 
 export const apiKey: InjectionKey<AxiosInstance> = Symbol('api');
 
@@ -19,10 +22,18 @@ function setBECookiesToResponse(ssrContext: QSsrContext | null, apiResponse: Axi
     return;
   }
 
-  const setCookie = apiResponse.headers['set-cookie'];
-  const cookies = Array.isArray(setCookie) ? setCookie : [setCookie];
-  cookies.forEach((cookie) => {
-    ssrContext.res.setHeader('Set-Cookie', cookie);
+  const parsedCookies = parse(apiResponse);
+  if (!Array.isArray(parsedCookies) || parsedCookies.length === 0) {
+    return;
+  }
+
+  parsedCookies.forEach((cookie) => {
+    const cookieName = cookie.name;
+    const cookieValue = cookie.value;
+    const preparedCookie = Object.assign({}, cookie);
+    delete preparedCookie.name;
+    delete preparedCookie.value;
+    ssrContext.res.cookie(cookieName, cookieValue, preparedCookie);
   });
 }
 
